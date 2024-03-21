@@ -1,16 +1,25 @@
-import { Button, Flex } from 'antd';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
+import './stylesheets/allignment.css';
+import './stylesheets/theme.css';
+import './stylesheets/sizes.css';
+import './stylesheets/customcomponenets.css';
+import './stylesheets/formelements.css';
+
 function App() {
   return (
-    <div className="App">
-      <h>Pinnacle arcade</h>
-
-      <Flex gap="small" wrap="wrap">
-        <Button type="primary">Primary Button</Button>
-        <Button>Default Button</Button>
-        <Button type="dashed">Dashed Button</Button>
-        <Button type="text">Text Button</Button>
-        <Button type="link">Link Button</Button>
-      </Flex>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
