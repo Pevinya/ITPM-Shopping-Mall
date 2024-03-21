@@ -1,0 +1,52 @@
+:root {
+    --color--primary: #4f1803;
+    --color--secondary: #EEEEEE;
+}
+
+.bg-primary {
+    background-color: var(--color--primary);
+}
+
+.bg-secondary {
+    background-color: var(--color--secondary);
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.text-primary {
+    color: var(--color--primary);
+}
+
+.text-secondary {
+    color: var(--color--secondary);
+}
+
+text.white {
+    color: #fff;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-md {
+    font-size: 16px;
+}
+
+.text-lg {
+    font-size: 18px;
+}
+
+.text-xl {
+    font-size: 20px;
+}
+
+.text-2xl {
+    font-size: 24px;
+}
+
+.text-3xl {
+    font-size: 28px;
+}
