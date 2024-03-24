@@ -1,0 +1,16 @@
+input{
+    height: 40px;
+    width: 100%;
+    border: gray 1px solid;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+input:focus{
+    outline : none;
+    border : rgb(60, 60, 60) solid 1px;
+}
+
+button{
+    height : 40px;
+}

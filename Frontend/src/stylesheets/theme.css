@@ -1,14 +1,14 @@
 :root {
-    --color--primary: #4f1803;
-    --color--secondary: #EEEEEE;
+    --color-primary: #ead4e8;
+    --color-secondary: #ad6cb7;
 }
 
 .bg-primary {
-    background-color: var(--color--primary);
+    background-color: var(--color-primary);
 }
 
 .bg-secondary {
-    background-color: var(--color--secondary);
+    background-color: var(--color-secondary);
 }
 
 .bg-white {
@@ -16,14 +16,22 @@
 }
 
 .text-primary {
-    color: var(--color--primary);
+    color: var(--color-primary);
 }
 
 .text-secondary {
-    color: var(--color--secondary);
+    color: var(--color-secondary);
 }
 
-text.white {
+.border-primary {
+    border-color: var(--color-primary);
+}
+
+.border-secondary {
+    border-color: var(--color-secondary);
+}
+
+.text-white {
     color: #fff;
 }
 
