@@ -1,12 +1,25 @@
 import React from 'react';
-import { Form, Input } from "antd";  //import components from ant deign;
+import { Form, message , Input } from "antd";  //import components from ant deign;
 import Button from '../../Components/Button';
 import { Link } from 'react-router-dom'; 
+import { RegisterUser } from '../../apicalls/users';
 
 function Register() {
-  const onFinish = (values) => {
-    console.log("success:" , values);
-  }
+  const onFinish = async(values) => {
+    //console.log("success:" , values);
+
+    try {
+      const response = await RegisterUser(values);
+      if (response.success) {
+        message.success(response.message)
+      } else {
+        message.error(response.message)
+      }
+      
+    } catch (error) {
+       message.error(error.message);
+    }
+  };
 
   return (
     <div className='h-screen bg-primary flex items-center justify-center'>
@@ -30,6 +43,12 @@ function Register() {
             name = "email"
           >
             <Input type='email' placeholder='Email' />
+          </Form.Item>
+          <Form.Item
+            label = "Phone"
+            name = "phone"
+          >
+            <Input type='number' placeholder='Contact Number' />
           </Form.Item>
           <Form.Item
             label = "Password"
