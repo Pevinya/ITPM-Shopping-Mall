@@ -26,8 +26,8 @@ const itemSchema = new mongoose.Schema({
     default: false
   },
   productImage: {
-    type: String,
-    required: true
+    data:Buffer,
+    contentType:String
   }
 }, {
   timestamps: true
