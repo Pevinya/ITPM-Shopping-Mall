@@ -9,6 +9,7 @@ import './stylesheets/theme.css';
 import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
+import CreateFeedback from './pages/CreateFeedback';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+
+
+          <Route path='/feedback' element={<CreateFeedback />} />
         </Routes>
       </BrowserRouter>
     </div>
