@@ -1,11 +1,25 @@
 import React from 'react';
-import { Form, Input } from "antd";  //import components from ant deign;
+import { Form, Input, message } from "antd";  //import components from ant deign;
 import Button from '../../Components/Button';
 import { Link } from 'react-router-dom'; 
+import { LoginUser } from '../../apicalls/users';
 
 function Login() {
-  const onFinish = (values) => {
-    console.log("success:" , values);
+  const onFinish = async(values) => {
+    //console.log("success:" , values);
+    try {
+      const response = await LoginUser(values);
+      if(response.success){
+        message.success(response.message);
+        localStorage.setItem("token", response.data)
+        window.location.href = "/"
+      }else{
+        message.error(response.message);
+      }
+
+    } catch (error) {
+      message.error(error.message)
+    }
   }
 
   return (
@@ -32,7 +46,7 @@ function Login() {
             <Input type='password' placeholder='Password' />
           </Form.Item>
 
-          <Button title = "Register" type = "submit"
+          <Button title = "Login" type = "submit"
           color  ="secondary" 
           />       
           <div className = "text-center mt-2">

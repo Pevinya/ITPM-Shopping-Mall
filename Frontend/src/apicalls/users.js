@@ -4,6 +4,7 @@ import { axiosInstance } from "./axiosInstance";
 //register a user
 export const RegisterUser = async (payload) => {
     try {
+        console.log(payload)
         const response = await axiosInstance.post("/api/users/register", payload);
         return response.data;       
     } catch (error) {
@@ -20,3 +21,4 @@ export const LoginUser = async (payload) => {
         throw error;       
     }
 };
+
