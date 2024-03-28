@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Form, Input, Row, Col, Upload, Checkbox, message, Switch } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import Button from "../../../Components/Button"
+import { AddItems } from '../../../apicalls/item';
 
 const { Dragger } = Upload;
 
@@ -25,6 +26,7 @@ export default function ItemForm({ open, setOpen }) {
 
   const onFinish = (values) => {
     console.log('Received values:', values);
+    AddItems(values)
     setOpen(false);
   };
 
@@ -137,7 +139,7 @@ export default function ItemForm({ open, setOpen }) {
             </Form.Item>
           </Col>
 
-          <Col span={24}>
+          {/* <Col span={24}>
             <Form.Item
               label="Image Upload"
               name="image"
@@ -155,7 +157,7 @@ export default function ItemForm({ open, setOpen }) {
                 <p className="ant-upload-text">Click or drag image file to this area to upload</p>
               </Dragger>
             </Form.Item>
-          </Col>
+          </Col> */}
         </Row>
         <div className='flex justify-end gap-2 mt-1'>
           <Button type='button' varient='outlined' title='cancel' onClick={() => setOpen(false)} />

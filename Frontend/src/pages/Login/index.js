@@ -8,6 +8,7 @@ function Login() {
   const onFinish = async(values) => {
     //console.log("success:" , values);
     try {
+      console.log(values)
       const response = await LoginUser(values);
       if(response.success){
         message.success(response.message);
