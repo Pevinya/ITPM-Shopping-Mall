@@ -22,3 +22,14 @@ export const LoginUser = async (payload) => {
     }
 };
 
+//get user details
+export const GetLoggedInUserDetails = async () => {
+    try {
+        const response = await axiosInstance.get("/api/users/get-logged-in-user",);
+        console.log(response)
+        return response.data;       
+    } catch (error) {
+        throw error;       
+    }
+};
+

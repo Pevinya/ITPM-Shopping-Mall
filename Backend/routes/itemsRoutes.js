@@ -5,8 +5,11 @@ const Items = require("../models/itemsModel");
 // Add items
 router.post("/add-items", async (req, res) => {
     try {
-        const newItem = new Items(req.body);
-        await newItem.save();
+        console.log(req.body)
+        const items = await Items.create(req.body)
+        if(!items){
+            console.log("fnerfhsfvrh48fdnf,rebfnjefliv.fdnm")
+        }
         return res.send({ success: true, message: "Item added successfully" });
     } catch (error) {
         return res.send({ success: false, message: error.message });
