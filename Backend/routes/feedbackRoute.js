@@ -1,11 +1,10 @@
 const router= require("express").Router();
 const Feedback= require("../models/feedbackModel");
-const authMiddleaware=require("../middlewars/authMiddleaware");
 
 
 //add a feedback
 
-router.post("/add-feedback",authMiddleaware,async(req,res)=>{
+router.post("/add-feedback",async(req,res)=>{
     try{
 
         const{name,text,rating}=req.body;
@@ -17,7 +16,7 @@ router.post("/add-feedback",authMiddleaware,async(req,res)=>{
    }
 });
 //get all feedbacks
-router.get("/get-feedback/:email", authMiddleaware, async (req, res) => {
+router.get("/get-feedback/:email", async (req, res) => {
     try {
         const email = req.params.email;
         const feedbacks = await Feedback.find({ email });
@@ -28,7 +27,7 @@ router.get("/get-feedback/:email", authMiddleaware, async (req, res) => {
 });
 
 //update feedbacks
-router.put("/update-feedback/:email", authMiddleaware, async (req, res) => {
+router.put("/update-feedback/:email", async (req, res) => {
     try {
         const email = req.params.email;
         const { text, rating } = req.body;
@@ -41,7 +40,7 @@ router.put("/update-feedback/:email", authMiddleaware, async (req, res) => {
 
 
 //deleteFeedbacks
-router.delete("/delete-feedback/:email", authMiddleaware, async (req, res) => {
+router.delete("/delete-feedback/:email", async (req, res) => {
     try {
         const email = req.params.email;
         await Feedback.deleteOne({ email });
