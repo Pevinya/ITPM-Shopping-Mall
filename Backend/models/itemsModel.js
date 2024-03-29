@@ -21,14 +21,14 @@ const itemSchema = new mongoose.Schema({
     type: String,
     //required: true
   },
-  bestSelling: {
-    type: Boolean,
-    default: false
-  },
-  productImage: {
-    type: String,
-    //required: true
-  }
+  // bestSelling: {
+  //   type: Boolean,
+  //   default: false
+  // },
+  // productImage: {
+  //   type: String,
+  //   //required: true
+  // }
 }, {
   timestamps: true
 });
