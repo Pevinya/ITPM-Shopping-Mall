@@ -7,7 +7,7 @@ function Button({
     onClick,
     fullwidth=false
     }) {
-    let className = fullwidth ? "w-100 rounded":"pr-2 pl-2 rounded";
+    let className =  "w-100 ";
     if (variant === "contained") {
         className += 'bg-' + color + ' text-white';
     } else if (variant === "outlined") {

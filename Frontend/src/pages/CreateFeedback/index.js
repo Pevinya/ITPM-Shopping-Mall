@@ -20,9 +20,12 @@ function CreateFeedback() {
   
 
   return (
-    <div className="h-screen bg-primary flex items-center justify-center">
-      <div className="authentication-form bg-white p-3">
-        <h1 className="text-secondary text-2xl font-bold mb-1">Feedback</h1>
+  
+    <div className='h-screen bg-primary flex items-center justify-center'>
+    <div className='authentication-form bg-white p-3'>
+      <h1 className="text-secondary text-2xl font-bold mb-1"> 
+      PINNACLE ARCADE - Feedback
+        </h1>
         <hr />
         <Form
           form={form}
