@@ -4,7 +4,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Users from './pages/Profile';
-import CreateFeedback from './pages/CreateFeedback'; // Import the CreateFeedback component
+import CreateFeedback from './pages/CreateFeedback';
+import DisplayFeedback from './pages/DisplayFeedback';
+import FeedbacksByUser from './pages/FeedbacksByUser';
 import Package from './pages/Package';
 
 import './stylesheets/allignment.css';
@@ -23,7 +25,9 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/profile' element={<Users/>} />
-          <Route path='/feedback' element={<CreateFeedback />} /> {/* Add this route */}
+          <Route path='/feedback' element={<CreateFeedback />} />
+          <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
+          <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
           <Route path='/package' element={<Package />} />
         </Routes>
       </BrowserRouter>

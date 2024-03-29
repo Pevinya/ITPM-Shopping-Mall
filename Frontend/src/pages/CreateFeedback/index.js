@@ -1,31 +1,46 @@
 import React, { useState } from 'react';
-import { Form, Rate,Select } from 'antd';
+import { Form, Rate, Select,message} from 'antd';
 import Button from '../../Components/Button';
+import { AddFeedback } from '../../apicalls/feedback';
+
+
 
 const { Option } = Select;
 function CreateFeedback() {
+ 
   const [form] = Form.useForm();
   const [values, setValues] = useState({
     name: '',
     email: '',
     rate: 0,
-    feedback: ''
+    text: ''
   });
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     console.log('Success:', values);
+    try {
+      const response = await AddFeedback(values);
+      console.log(response);
+      setIsSuccess(true);
+      message.success('Successfully added!');
+      form.resetFields();
+      
+     
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  
-  
 
   return (
-  
+
     <div className='h-screen bg-primary flex items-center justify-center'>
-    <div className='authentication-form bg-white p-3'>
-      <h1 className="text-secondary text-2xl font-bold mb-1"> 
-      PINNACLE ARCADE - Feedback
+      <div className='authentication-form bg-white p-3'>
+        <h1 className="text-secondary text-2xl font-bold mb-1">
+          PINNACLE ARCADE - Feedback
         </h1>
+        {isSuccess && <p className="text-green-500 mb-2">Successfully added!</p>}
         <hr />
         <Form
           form={form}
@@ -63,27 +78,28 @@ function CreateFeedback() {
               onChange={(value) => setValues({ ...values, filterOption: value })}
               style={{ width: '100%' }}
             >
-              <Option value="option1">Option 1</Option>
-              <Option value="option2">Option 2</Option>
-              <Option value="option3">Option 3</Option>
+              <Option value="Kids & Family">Kids & Family</Option>
+              <Option value="Leisure">Leisure</Option>
+              <Option value="Foodie">Foodie</Option>
+              <Option value="Shoppers">Shoppers</Option>
             </Select>
           </Form.Item>
-          
+
           <Form.Item
             label="Feedback"
-            name="feedback"
+            name="text"
             rules={[{ required: true, message: 'Feedback is required' }]}
-          > 
-            
+          >
+
             <textarea
-            
+
               autoSize={{ minRows: 3, maxRows: 6 }}
-              value={values.feedback}
-              onChange={(e) => setValues({ ...values, feedback: e.target.value })}
+              value={values.text}
+              onChange={(e) => setValues({ ...values, text: e.target.value })}
               style={{ margin: '10px 10px 10px 0', width: 'calc(100% - 10px)' }}
             />
           </Form.Item>
-      
+
           <Button title="Submit" type="submit" color="secondary" />
         </Form>
       </div>

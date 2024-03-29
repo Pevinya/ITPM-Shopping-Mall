@@ -6,10 +6,10 @@ const feedbackSchem = new mongoose.Schema({
         type: String,
         required: true
       },
-    //   email: {
-    //     type: String,
-    //     required: true
-    //   },
+      email: {
+        type: String,
+        required: true
+      },
 
       filterOption: {
         type: String,
@@ -21,15 +21,15 @@ const feedbackSchem = new mongoose.Schema({
         required: true,
     },
 
-    rating:{
+    rate:{
         type:Number,
         required:true
     },
-     createdBy :{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"users",
-        required : true
-    }, 
+    //  createdBy :{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref:"users",
+    //     required : true
+    // }, 
 }, {
         timeseries: true
     });
