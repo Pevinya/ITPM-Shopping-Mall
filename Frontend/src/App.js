@@ -7,6 +7,7 @@ import Users from './pages/Profile';
 import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
+import Package from './pages/Package';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
@@ -27,6 +28,7 @@ function App() {
           <Route path='/feedback' element={<CreateFeedback />} />
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
+          <Route path='/package' element={<Package />} />
         </Routes>
       </BrowserRouter>
     </div>
