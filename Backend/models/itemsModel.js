@@ -10,11 +10,11 @@ const itemSchema = new mongoose.Schema({
     //required: true
   },
   size: {
-    type: String,
+    type: [String],
     // enum:['XS','S','M','L','XL'] 
   },
   color: {
-    type: String,
+    type: [String],
     // enum:['op1','op2','op3','op4','op5','op6']
   },
   description: {
