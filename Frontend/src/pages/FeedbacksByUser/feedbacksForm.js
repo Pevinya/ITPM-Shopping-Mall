@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { Modal, Form, Input, Row, Col, Upload, Checkbox, message, Switch, Rate } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import Button from "../../Components/Button"
@@ -10,6 +10,7 @@ const { Dragger } = Upload;
 
 export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate }) {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
 
   const handleCancel = () => {
     form.resetFields();
@@ -20,11 +21,15 @@ export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate
     try {
       await UpdateFeedbackDetails(feedback._id, values);
       onFeedbackUpdate();
+      message.success('Feedback successfully updated!');
     } catch (error) {
       console.error(error);
       message.error('Failed to update feedback. Please try again.');
     }
+    setLoading(false);
     setOpen(false);
+    
+
   };
 
   return (
@@ -54,7 +59,7 @@ export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate
              <Rate
               count={5}
               style={{ color: 'gold' }}
-              tooltips={['Bad', 'Good', 'Very Good']}
+              tooltips={['Unacceptable', 'Needs Improvement ', 'Acceptable','Good','Excellent']}
               defaultValue={feedback.rate}
               rules={[{ required: true, message: "Enter Rating" }]}
             />
@@ -64,7 +69,7 @@ export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate
       </Row>
       <div className='flex justify-end gap-2 mt-1'>
         <Button type='button' varient='outlined' title='Cancel' onClick={() => setOpen(false)} />
-        <Button title='Save' type='submit'></Button>
+        <Button title='Save' type='submit' loading={loading}></Button>
       </div>
     </Form>
     </Modal >

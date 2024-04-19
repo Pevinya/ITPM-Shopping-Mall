@@ -48,31 +48,28 @@ function CreateFeedback() {
           onFinish={onFinish}
           initialValues={values}
         >
-          <Form.Item label="Name" name="name">
+          <Form.Item label="Name" name="name"
+           rules={[{ required: true, message: 'Name is required' }]}>
             <input
               type="text"
               placeholder="Name"
               value={values.name}
               onChange={(e) => setValues({ ...values, name: e.target.value })}
+              style={{ width: '80%' }}
             />
           </Form.Item>
-          <Form.Item label="Email" name="email">
+          <Form.Item label="Email" name="email"
+           rules={[{ required: true, message: 'Email is required' }]}>
             <input
               type="email"
               placeholder="Email"
               value={values.email}
               onChange={(e) => setValues({ ...values, email: e.target.value })}
+              style={{ width: '80%' }}
             />
-          </Form.Item>
-          <Form.Item label="Rate" name="rate">
-            <Rate
-              count={5}
-              style={{ color: 'gold' }}
-              tooltips={['Bad', 'Good', 'Very Good']}
-              onChange={(value) => setValues({ ...values, rate: value })}
-            />
-          </Form.Item>
-          <Form.Item label="Select the Package" name="filterOption">
+            </Form.Item>
+          <Form.Item label="Select the Package" name="filterOption"
+          rules={[{ required: true, message: 'Package selection required' }]}>
             <Select
               placeholder="Select a filter option"
               onChange={(value) => setValues({ ...values, filterOption: value })}
@@ -84,6 +81,16 @@ function CreateFeedback() {
               <Option value="Shoppers">Shoppers</Option>
             </Select>
           </Form.Item>
+          
+          <Form.Item label="Rate" name="rate">
+            <Rate
+              count={5}
+              style={{ color: 'gold' }}
+              tooltips={['Unacceptable', 'Needs Improvement ', 'Acceptable','Good','Excellent']}
+              onChange={(value) => setValues({ ...values, rate: value })}
+            />
+          </Form.Item>
+         
 
           <Form.Item
             label="Feedback"

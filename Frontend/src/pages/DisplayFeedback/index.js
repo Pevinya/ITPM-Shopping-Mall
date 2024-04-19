@@ -39,7 +39,8 @@ const FeedbackList = () => {
           <h2 className="text-secondary text-1 font-bold mb-2">Filter Packages</h2>
         </div>
         
-      <Select defaultValue="All" style={{ width: 120,display: 'block', margin: '0 auto', marginBottom: '20px' }} onChange={handleFilterChange}>
+      <Select defaultValue="All" style={{ width: 200,display: 'block', margin: '0 auto', marginBottom: '20px' }}  onChange={handleFilterChange}>
+        
     
 
             <Option value="All">All</Option> 
