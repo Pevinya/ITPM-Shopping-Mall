@@ -17,6 +17,7 @@ import './stylesheets/formelements.css';
 import ProtectedRoute from './Components/ProtectedRoute';
 import ViewProducts from './pages/ViewProducts';
 import AppHeader from './pages/Header';
+import AppFooter from './pages/Footer';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='/package' element={<Package />} />
           <Route path='/viewproducts' element={<ViewProducts />} />
           <Route path='/header' element={<AppHeader/>} />
+          <Route path='/footer' element={<AppFooter/>} />
           
         </Routes>
       </BrowserRouter>
