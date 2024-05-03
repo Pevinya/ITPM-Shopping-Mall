@@ -3,7 +3,7 @@ import { Form, message , Input } from "antd";  //import components from ant deig
 import Button from '../../Components/Button';
 import { Link } from 'react-router-dom'; 
 import { RegisterUser } from '../../apicalls/users';
-
+import AppFooter from '../Footer';
 import AppHeader from '../Header';
 
 function Register() {
@@ -74,7 +74,9 @@ function Register() {
         </Form>
       </div>
     </div>
+    <AppFooter></AppFooter>
     </div>
+    
   )
 }
 
