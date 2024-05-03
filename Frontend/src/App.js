@@ -15,6 +15,8 @@ import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 import ProtectedRoute from './Components/ProtectedRoute';
+import ViewProducts from './pages/ViewProducts';
+import AppHeader from './pages/Header';
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
           <Route path='/package' element={<Package />} />
+          <Route path='/viewproducts' element={<ViewProducts />} />
+          <Route path='/header' element={<AppHeader/>} />
+          
         </Routes>
       </BrowserRouter>
     </div>

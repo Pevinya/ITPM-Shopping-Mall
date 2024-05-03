@@ -21,6 +21,8 @@ function Register() {
     }
   };
 
+
+
   return (
     <div className='h-screen bg-primary flex items-center justify-center'>
       <div className='authentication-form bg-white p-3'>
