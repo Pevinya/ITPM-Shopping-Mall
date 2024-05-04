@@ -36,6 +36,8 @@ function App() {
 
 
 
+
+
           {/*Lakitha */}
           <Route path='/feedback' element={<CreateFeedback />} />
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
@@ -47,16 +49,33 @@ function App() {
 
 
 
-         
+
+
+           {/*Nishedi */}
+           <Route path='/package' element={<Package />} />
+
+
+
+          
+
+
+
+
+            {/*Lakshima */}
+            <Route path='/viewproducts' element={<ViewProducts />} />
+            <Route path='/addProducts' element={<AddProduct />} />
+            <Route path='/header' element={<AppHeader/>} />
+            <Route path='/footer' element={<AppFooter/>} />
+            <Route path='/level1' element={<StoreDirectory/>} />
+
+
+                    
 
 
 
 
 
-
-
-
-
+    
           
         </Routes>
       </BrowserRouter>
