@@ -62,7 +62,6 @@ function App() {
 
 
             {/*Lakshima */}
-            <Route path='/viewproducts' element={<ViewProducts />} />
             <Route path='/addProducts' element={<AddProduct />} />
             <Route path='/header' element={<AppHeader/>} />
             <Route path='/footer' element={<AppFooter/>} />
