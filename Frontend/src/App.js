@@ -15,7 +15,7 @@ import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 import ProtectedRoute from './Components/ProtectedRoute';
-import ViewProducts from './pages/ViewProducts';
+import AddProduct from './pages/AddProducts';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
 
@@ -32,7 +32,7 @@ function App() {
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
           <Route path='/package' element={<Package />} />
-          <Route path='/viewproducts' element={<ViewProducts />} />
+          <Route path='/addProducts' element={<AddProduct />} />
           <Route path='/header' element={<AppHeader/>} />
           <Route path='/footer' element={<AppFooter/>} />
           
