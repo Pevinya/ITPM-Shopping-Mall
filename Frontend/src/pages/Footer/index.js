@@ -8,13 +8,13 @@ const { Title } = Typography;
 
 const App = () => {
   return (
-    <Layout className="layout" style={{ minHeight: '100vh' }}>
+    <Layout className="layout"  style={{ minHeight: '50vh' }}> {/*style={{ minHeight: '50vh' }}*/}
       <Content style={{ padding: '0 50px', flex: 1 }}>
         {/* Content would normally go here */}
       </Content>
 
-      <Footer style={{ textAlign: 'center', backgroundColor: '#EAE2F8', padding: '20px 0' }}>
-        <Row justify="space-between" style={{ maxWidth: '960px', margin: '0 auto' }}>
+      <Footer style={{ textAlign: 'center', padding: '60px 0' }}>
+        <Row justify="space-between" style={{ maxWidth: '1500px', margin: '0 auto' }}>
           <Col span={6}>
             <Title level={5}>Merchandise</Title>
             <p>T-shirts</p>

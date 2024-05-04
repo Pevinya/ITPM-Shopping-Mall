@@ -15,7 +15,7 @@ import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 import ProtectedRoute from './Components/ProtectedRoute';
-import ViewProducts from './pages/ViewProducts';
+import AddProduct from './pages/AddProducts';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
 import StoreDirectory from './pages/Levels/Groceries';
@@ -47,22 +47,7 @@ function App() {
 
 
 
-          {/*Nishedi */}
-          <Route path='/package' element={<Package />} />
-
-
-
-
-
-
-
-
-
-          {/*Lakshima */}
-          <Route path='/viewproducts' element={<ViewProducts />} />
-          <Route path='/header' element={<AppHeader/>} />
-          <Route path='/footer' element={<AppFooter/>} />
-          <Route path='/level1' element={<StoreDirectory/>} />
+         
 
 
 
