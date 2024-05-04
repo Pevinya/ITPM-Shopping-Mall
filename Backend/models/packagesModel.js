@@ -4,23 +4,23 @@ const packageSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      //required: true,
+      required: true,
     },
     packageName: {
       type: String,
-     // required: true,
+      required: true,
     },
     packagePrice: {
         type: String,
-        //required: true,
+        required: true,
       },
     description: {
         type: String,
-        //required: true,
+        required: true,
     },
     addedDate: {
       type: String,
-      //required: true,
+      required: true,
     },
     /*image: {
         type: String,
