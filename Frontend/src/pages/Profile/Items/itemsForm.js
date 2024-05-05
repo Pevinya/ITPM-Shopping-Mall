@@ -1,10 +1,10 @@
 import React from 'react';
-import { Modal, Form, Input, Row, Col, Upload, Checkbox, message, Switch } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
+import { Modal, Form, Input, Row, Col, Checkbox } from 'antd';
+//import { InboxOutlined } from '@ant-design/icons';
 import Button from "../../../Components/Button"
 import { AddItems } from '../../../apicalls/item';
 
-const { Dragger } = Upload;
+//const { Dragger } = Upload;
 
 const colorOptions = [
   { label: 'Red', value: 'red', color: '#ff4d4f' },
@@ -30,14 +30,14 @@ export default function ItemForm({ open, setOpen }) {
     setOpen(false);
   };
 
-  const onFileUpload = (info) => {
-    const { status } = info.file;
-    if (status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully.`);
-    } else if (status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  };
+  // const onFileUpload = (info) => {
+  //   const { status } = info.file;
+  //   if (status === 'done') {
+  //     message.success(`${info.file.name} file uploaded successfully.`);
+  //   } else if (status === 'error') {
+  //     message.error(`${info.file.name} file upload failed.`);
+  //   }
+  // };
 
   return (
     <Modal
@@ -129,7 +129,7 @@ export default function ItemForm({ open, setOpen }) {
             </Form.Item>
           </Col>
 
-          <Col span={24}>
+          {/* <Col span={24}>
             <Form.Item
               label="Best Selling"
               name="bestSelling"
@@ -137,7 +137,7 @@ export default function ItemForm({ open, setOpen }) {
             >
               <Switch />
             </Form.Item>
-          </Col>
+          </Col> */}
 
           {/* <Col span={24}>
             <Form.Item

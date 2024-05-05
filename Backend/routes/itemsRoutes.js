@@ -10,6 +10,8 @@ router.post("/add-items", async (req, res) => {
         if(!items){
             console.log("fnerfhsfvrh48fdnf,rebfnjefliv.fdnm")
         }
+        console.log("added succsesssfully")
+
         return res.send({ success: true, message: "Item added successfully" });
     } catch (error) {
         return res.send({ success: false, message: error.message });

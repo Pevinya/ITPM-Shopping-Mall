@@ -3,6 +3,8 @@ import { Form, message , Input } from "antd";  //import components from ant deig
 import Button from '../../Components/Button';
 import { Link } from 'react-router-dom'; 
 import { RegisterUser } from '../../apicalls/users';
+import AppFooter from '../Footer';
+import AppHeader from '../Header';
 
 function Register() {
   const onFinish = async(values) => {
@@ -21,7 +23,11 @@ function Register() {
     }
   };
 
+
+
   return (
+  <div>
+    <AppHeader></AppHeader>
     <div className='h-screen bg-primary flex items-center justify-center'>
       <div className='authentication-form bg-white p-3'>
         <h1 className="text-secondary text-2xl font-bold mb-1"> 
@@ -68,6 +74,9 @@ function Register() {
         </Form>
       </div>
     </div>
+    <AppFooter></AppFooter>
+    </div>
+    
   )
 }
 

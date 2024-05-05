@@ -15,20 +15,67 @@ import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 import ProtectedRoute from './Components/ProtectedRoute';
+import AddProduct from './pages/AddProducts';
+import AppHeader from './pages/Header';
+import AppFooter from './pages/Footer';
+import StoreDirectory from './pages/Levels/Groceries';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
+          {/*Pevinya*/}
           <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/profile' element={<Users/>} />
+
+
+
+
+
+
+
+
+          {/*Lakitha */}
           <Route path='/feedback' element={<CreateFeedback />} />
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
-          <Route path='/package' element={<Package />} />
+
+
+
+
+
+
+
+
+
+           {/*Nishedi */}
+           <Route path='/package' element={<Package />} />
+
+
+
+          
+
+
+
+
+            {/*Lakshima */}
+            <Route path='/addProducts' element={<AddProduct />} />
+            <Route path='/header' element={<AppHeader/>} />
+            <Route path='/footer' element={<AppFooter/>} />
+            <Route path='/level1' element={<StoreDirectory/>} />
+
+
+                    
+
+
+
+
+
+    
+          
         </Routes>
       </BrowserRouter>
     </div>
