@@ -7,7 +7,7 @@ import Users from './pages/Profile';
 import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
-import Package from './pages/Package';
+import Packages from './pages/Packages';
 import StoreDirectory from './pages/Levels/groceries';
 import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
@@ -57,7 +57,7 @@ function App() {
 
 
            {/*Nishedi */}
-           <Route path='/package' element={<Package />} />
+           <Route path='/package' element={<Packages />} />
 
 
 
