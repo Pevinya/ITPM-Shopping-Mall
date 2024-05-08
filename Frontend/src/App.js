@@ -8,6 +8,10 @@ import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
 import Package from './pages/Package';
+import StoreDirectory from './pages/Levels/groceries';
+import Shopping from './pages/shoppingPage';
+import Clothes from './pages/Levels/clothes';
+import AdminAdd from './pages/adminAdd/index';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
@@ -15,10 +19,11 @@ import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 import ProtectedRoute from './Components/ProtectedRoute';
-import AddProduct from './pages/AddProducts';
+import AddProduct from './pages/addProducts/clothes';
+import ShowProducts from './pages/showProduct';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
-import StoreDirectory from './pages/Levels/Groceries';
+
 
 function App() {
   return (
@@ -63,9 +68,15 @@ function App() {
 
             {/*Lakshima */}
             <Route path='/addProducts' element={<AddProduct />} />
+            <Route path='/shopping' element={<Shopping/>}/>
             <Route path='/header' element={<AppHeader/>} />
             <Route path='/footer' element={<AppFooter/>} />
-            <Route path='/level1' element={<StoreDirectory/>} />
+            <Route path='/level1' element={<StoreDirectory/>}/>
+            <Route path='/level2' element={<Clothes/>}/>
+            <Route path='/showProducts' element={<ShowProducts/>}/>
+            <Route path='/adminAdd' element={<AdminAdd/>}/>
+
+
 
 
                     
