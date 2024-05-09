@@ -11,6 +11,8 @@ import Packages from './pages/Packages';
 import StoreDirectory from './pages/Levels/groceries';
 import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
+import Phones from './pages/Levels/phones';
+import Cosmetics from './pages/Levels/cosmetics';
 import AdminAdd from './pages/adminAdd/index';
 
 import './stylesheets/allignment.css';
@@ -58,7 +60,8 @@ function App() {
 
            {/*Nishedi */}
            <Route path='/package' element={<Packages />} />
-
+           <Route path='/level3' element={<Phones/>}/>
+           <Route path='/level4' element={<Cosmetics/>}/>
 
 
           
