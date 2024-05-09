@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Form, Rate, Select,message} from 'antd';
 import Button from '../../Components/Button';
 import { AddFeedback } from '../../apicalls/feedback';
+import AppFooter from '../Footer';
+import AppHeader from '../Header';
 
 
 
@@ -34,12 +36,11 @@ function CreateFeedback() {
 
 
   return (
-
-    <div className='h-screen bg-primary flex items-center justify-center'>
-      <div className='authentication-form bg-white p-3'>
-        <h1 className="text-secondary text-2xl font-bold mb-1">
-          PINNACLE ARCADE - Feedback
-        </h1>
+    <div>
+    <AppHeader></AppHeader>
+    <div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '24px', margin: '20px 0' }}>Cool Planet</div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ maxWidth: '800px', width: '100%' }}>
         {isSuccess && <p className="text-green-500 mb-2">Successfully added!</p>}
         <hr />
         <Form
@@ -110,6 +111,8 @@ function CreateFeedback() {
           <Button title="Submit" type="submit" color="secondary" />
         </Form>
       </div>
+    </div>
+    <AppFooter></AppFooter>
     </div>
   );
 }

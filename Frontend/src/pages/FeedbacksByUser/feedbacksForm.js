@@ -1,10 +1,11 @@
 import React , {useState} from 'react';
-import { Modal, Form, Input, Row, Col, Upload, Checkbox, message, Switch, Rate } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
+import { Modal, Form, Input, Row, Col,  message,  Rate } from 'antd';
+
 import Button from "../../Components/Button"
 import { UpdateFeedbackDetails } from '../../apicalls/feedback';
 
-const { Dragger } = Upload;
+
+
 
 
 
@@ -33,6 +34,8 @@ export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate
   };
 
   return (
+    
+      
     <Modal
       title="Update Feedback"
       visible={open}
@@ -73,5 +76,6 @@ export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate
       </div>
     </Form>
     </Modal >
+  
   );
 }
