@@ -29,6 +29,9 @@ import StoreDirectory from './pages/Levels/groceries';
 import AdminAdd from './pages/adminAdd/clothes';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
+import UserTable from './pages/Profile';
+import UserDetailsForm from './pages/Profile/viewprofile';
+import ShoppingListView from './pages/shoppinglist/listview';
 
 
 function App() {
@@ -40,7 +43,10 @@ function App() {
           <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/profile' element={<Users/>} />
+          <Route path='/UserDetailsForm' element={<UserDetailsForm/>} />
+          
+          <Route path='/ShoppingListView' element={<ShoppingListView/>} />
+        
 
 
 
