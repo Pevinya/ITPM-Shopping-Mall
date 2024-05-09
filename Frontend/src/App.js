@@ -4,13 +4,16 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Users from './pages/Profile';
+
 import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
+
 import Packages from './pages/Packages';
-import StoreDirectory from './pages/Levels/groceries';
 import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
+import Phones from './pages/Levels/phones';
+import Cosmetics from './pages/Levels/cosmetics';
 
 
 import './stylesheets/allignment.css';
@@ -18,9 +21,12 @@ import './stylesheets/theme.css';
 import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
+
 import ProtectedRoute from './Components/ProtectedRoute';
 import AddZara from './pages/addProducts/zara';
 import ShowProducts from './pages/showProduct';
+import StoreDirectory from './pages/Levels/groceries';
+import AdminAdd from './pages/adminAdd/clothes';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
 
