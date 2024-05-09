@@ -23,10 +23,12 @@ import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 
 import ProtectedRoute from './Components/ProtectedRoute';
-import AddZara from './pages/addProducts/zara';
+import AddProductForm from './pages/addProducts';
 import ShowProducts from './pages/showProduct';
 import StoreDirectory from './pages/Levels/groceries';
-import AdminAdd from './pages/adminAdd/clothes';
+import AdminAdd from './pages/adminAdd';
+import ShowShopsProducts from './pages/showShopsProduct';
+
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
 
@@ -74,16 +76,15 @@ function App() {
 
 
             {/*Lakshima */}
-            {/* <Route path='/add-product/ZaraLogo' element={<AddZara />} /> */}
             <Route path='/shopping' element={<Shopping/>}/>
             <Route path='/header' element={<AppHeader/>} />
             <Route path='/footer' element={<AppFooter/>} />
             <Route path='/level1' element={<StoreDirectory/>}/>
             <Route path='/level2' element={<Clothes/>}/>
             <Route path='/showProducts' element={<ShowProducts/>}/>
+            <Route path='/ShowProducts/:name' element={<ShowShopsProducts/>}/>
             <Route path='/adminAdd' element={<AdminAdd/>}/>
-            
-        <Route exact path="/add-product/:name" element={<AddZara />} />
+            <Route exact path="/show-product/:name" element={<AddProductForm />} />
 
 
 
