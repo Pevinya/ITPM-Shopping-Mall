@@ -27,7 +27,7 @@ import ShowProducts from './pages/showProduct';
 import StoreDirectory from './pages/Levels/groceries';
 import AdminAdd from './pages/adminAdd';
 import ShowShopsProducts from './pages/showShopsProduct';
-
+import AddProductForm from './pages/addProducts';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
 import UserTable from './pages/Profile';
@@ -75,7 +75,7 @@ function App() {
            <Route path='/level4' element={<Cosmetics/>}/>
            <Route path='/adminAdded' element={<AdminAdded/>}/>
             
-        <Route exact path="/add-community/:name" element={<Foodie />} />
+        {/* <Route exact path="/add-community/:name" element={<Foodie />} /> */}
 
 
           
