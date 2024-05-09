@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 import { GetLoggedInUserDetails, GetUserDetails } from '../apicalls/users';
+import AppHeader from '../pages/Header';
+import App from '../pages/Footer';
 
 function ProtectedRoute({ children }) {
     const navigate = useNavigate();
@@ -30,7 +32,13 @@ function ProtectedRoute({ children }) {
         }
     }, []);
 
-    return <div>{user && children}</div>;
+    return <div>
+        <AppHeader/>
+
+        {user && children}
+
+        <App/>
+        </div>;
 }
 
 export default ProtectedRoute;
