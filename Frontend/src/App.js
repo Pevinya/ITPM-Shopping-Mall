@@ -11,7 +11,7 @@ import Package from './pages/Package';
 import StoreDirectory from './pages/Levels/groceries';
 import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
-import AdminAdd from './pages/adminAdd/index';
+import AdminAdd from './pages/adminAdd/clothes';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
@@ -19,7 +19,7 @@ import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 import ProtectedRoute from './Components/ProtectedRoute';
-import AddProduct from './pages/addProducts/clothes';
+import AddZara from './pages/addProducts/zara';
 import ShowProducts from './pages/showProduct';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
@@ -67,7 +67,7 @@ function App() {
 
 
             {/*Lakshima */}
-            <Route path='/addProducts' element={<AddProduct />} />
+            {/* <Route path='/add-product/ZaraLogo' element={<AddZara />} /> */}
             <Route path='/shopping' element={<Shopping/>}/>
             <Route path='/header' element={<AppHeader/>} />
             <Route path='/footer' element={<AppFooter/>} />
@@ -75,6 +75,8 @@ function App() {
             <Route path='/level2' element={<Clothes/>}/>
             <Route path='/showProducts' element={<ShowProducts/>}/>
             <Route path='/adminAdd' element={<AdminAdd/>}/>
+            
+        <Route exact path="/add-product/:name" element={<AddZara />} />
 
 
 

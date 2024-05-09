@@ -14,11 +14,15 @@ const itemRoute =require ("./routes/itemsRoutes");
 
 const feedbackRoute=require("./routes/feedbackRoute");
 const packagesRoute=require("./routes/packagesRoute");
+const shopRoute=require("./routes/shopRoute");
 
 app.use("/api/users" , usersRoute);
 app.use("/api/package",packagesRoute);
 app.use("/api/item", itemRoute);
 app.use("/api/feedback",feedbackRoute);
+app.use("/api/shop",shopRoute);
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
