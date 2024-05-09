@@ -98,8 +98,8 @@ const AddPackageForm = () => {
               <Input placeholder="Image URL" />
             </Form.Item>
 
-            <Form.Item>
-              <Button type="primary" htmlType="submit">
+            <Form.Item style={{ textAlign: 'center' }}>
+              <Button type="primary" htmlType="submit" style={{ backgroundColor: 'purple' }}>
                 Add Package
               </Button>
             </Form.Item>
