@@ -9,12 +9,12 @@ import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
 
-import Packages from './pages/Packages';
+import CreatePackages from './pages/CreatePackages';
 import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
 import Cosmetics from './pages/Levels/cosmetics';
-
+import AdminAdded from './pages/Community/types';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
@@ -24,6 +24,7 @@ import './stylesheets/formelements.css';
 
 import ProtectedRoute from './Components/ProtectedRoute';
 import AddZara from './pages/addProducts/zara';
+import Foodie from './pages/Community/types';
 import ShowProducts from './pages/showProduct';
 import StoreDirectory from './pages/Levels/groceries';
 import AdminAdd from './pages/adminAdd/clothes';
@@ -63,9 +64,12 @@ function App() {
 
 
            {/*Nishedi */}
-           <Route path='/package' element={<Packages />} />
+           <Route path='/package' element={<CreatePackages />} />
            <Route path='/level3' element={<Phones/>}/>
            <Route path='/level4' element={<Cosmetics/>}/>
+           <Route path='/adminAdded' element={<AdminAdded/>}/>
+            
+        <Route exact path="/add-community/:name" element={<Foodie />} />
 
 
           
