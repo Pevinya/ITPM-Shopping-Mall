@@ -67,7 +67,7 @@ const AddProductForm = () => {
 
   return (
     <div>
-      <AppHeader />
+      <AppHeader/>
       <div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '24px', margin: '20px 0' }}>Shop Name: {name}</div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div style={{ maxWidth: '800px', width: '100%' }}>
