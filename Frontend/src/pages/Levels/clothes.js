@@ -1,0 +1,72 @@
+import React, { useState } from 'react';
+import { Input, Row, Col, Card } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
+import AppFooter from '../Footer';
+import AppHeader from '../Header';
+import ZaraLogo from '../../images/storeDirectoryImg/clothes/zara.jpeg';
+import HMLogo from '../../images/storeDirectoryImg/clothes/h&m.jpeg';
+import FasionHouseLogo from '../../images/storeDirectoryImg/clothes/fasionhouse.jpeg';
+import DotsLinesLogo from '../../images/storeDirectoryImg/clothes/dots and line.jpeg';
+import LadyLogo from '../../images/storeDirectoryImg/clothes/lady.jpeg';
+import ZartheLogo from '../../images/storeDirectoryImg/clothes/zarthe.jpg';
+
+const StoreDirectory = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const stores = [
+    { name: "Zara", logo: ZaraLogo },
+    { name: "H&M", logo: HMLogo },
+    { name: "Fasion House", logo: FasionHouseLogo },
+    { name: "Dots & Lines", logo: DotsLinesLogo },
+    { name: "Lady", logo: LadyLogo },
+    { name: "Zarthe", logo: ZartheLogo }
+  ];
+
+  const filteredStores = stores.filter(store =>
+    store.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  return (
+    <div>
+      <AppHeader></AppHeader>
+      <div style={{ padding: '20px', background: '#fff', textAlign: 'center' }}>
+        <p style={{ padding: '10px', color: '#888', marginBottom: '5px', fontSize: '10px' }}> Home &gt; Shopping &gt; Level 2</p>
+        <h2 style={{ padding: '10px', color: '#5e2a84', margin: '10px 0 20px 0', fontSize: '30px', fontFamily: '"Times New Roman", Times, serif' }}>Level 02-Clothes</h2>
+        <Input
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Find your favorite store"
+          prefix={<SearchOutlined />}
+          style={{
+            width: '450px',
+            marginBottom: '20px',
+            borderRadius: '19px',
+            padding: '7px 20px',
+            border: '1px solid #d9d9d9',
+            boxShadow: 'none',
+            backgroundColor: '#E6E6FA' // Light purple background color
+          }}
+        />
+
+        <Row gutter={[16, 24]} style={{ padding: '10px', maxWidth: 800, margin: '0 auto' }}>
+          {(searchQuery === '' ? stores : filteredStores).map((store, index) => (
+            <Col key={index} xs={24} sm={12} md={8} lg={8}>
+              <Card
+                hoverable
+                style={{ width: '100%', textAlign: 'center' }}
+                cover={<img alt={store.name} src={store.logo} style={{ width: 'auto', height: 100, margin: '0 auto' }} />}
+              >
+                <Card.Meta title={store.name} style={{ padding: '10px 0' }} />
+              </Card>
+            </Col>
+          ))}
+        </Row>
+
+        {searchQuery !== '' && filteredStores.length === 0 && <p>No output</p>}
+      </div>
+      <AppFooter />
+    </div>
+  );
+};
+
+export default StoreDirectory;
