@@ -11,31 +11,35 @@ const packageSchema = new mongoose.Schema(
       required: true,
     },
     packagePrice: {
-        type: String,
-        required: true,
-      },
-    description: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
+    description: {
+      type: String,
+      required: true,
+    },
+
+    advantages: [{
+      type: String,
+      required: true,
+    }],
+
     addedDate: {
       type: String,
       required: true,
     },
-    /*image: {
-        type: String,
-        required: true,
-    },*/
+    createdBy: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
 
-    // createdBy: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "users",
-    //   required: true,
-    // },
-  },
-  {
-    timestamps: true,
   }
 );
 
-module.exports = mongoose.model("packages", packageSchema);
+const Package = mongoose.model('Package', packageSchema);
+
+module.exports = Package;
