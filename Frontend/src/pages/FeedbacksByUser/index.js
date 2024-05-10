@@ -73,7 +73,7 @@ const FeedbackList = () => {
         </Select><Row key={JSON.stringify(feedbacks)} gutter={[16, 16]}>
                 {filteredFeedbacks.map((feedback) => (
                     <Col key={feedback._id} xs={24} sm={12} md={8} lg={6}>
-                        <Card>
+                        <Card style={{backgroundColor:'#E6E6FA'}}>
                             <p>Name: {feedback.name} </p>
                             {/* <p>Email: {feedback.email}</p> */}
                             <p>: {feedback.filterOption}</p>

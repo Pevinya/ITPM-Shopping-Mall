@@ -4,6 +4,7 @@ import { GetAllFeedbackDetails } from "../../apicalls/feedback";
 import AppFooter from '../Footer';
 import AppHeader from '../Header';
 
+
 const { Meta } = Card;
 const { Option } = Select;
 
@@ -32,14 +33,23 @@ const FeedbackList = () => {
 
   return (
     <>
+    {/* <div
+        // style={{
+        //   padding: '20px',
+        //   background: `url(${feedbackImg2})`,
+        //   backgroundSize: 'cover',
+        //   minHeight: '100vh', // Ensure the background covers the entire viewport
+        // }}
+      ></div> */}
+    
      <AppHeader></AppHeader>
-    <div className='h-screen bg-primary items-center justify-center'>
-        <div className='authentication-form bg-white p-1'>
-          <h1 className="text-secondary text-2xl font-bold mb-4">Feedbacks</h1>
-        </div>
+     <div style={{ padding: '20px', background: '#fff' }}></div>
+     <h2 style={{ textAlign: 'center', fontSize: '30px', marginBottom: '30px', fontFamily: '"Times New Roman", Times, serif' }}>Feedbacks </h2>
+        
         <hr />
         <div className='authentication-form bg-white p-1' style={{ marginTop: '20px' }}>
-          <h2 className="text-secondary text-1 font-bold mb-2">Filter Packages</h2>
+        <h6 style={{ fontSize: '18px', fontWeight: 'bold',textAlign: 'center' }}>filter Package</h6>
+          
         </div>
         
       <Select defaultValue="All" style={{ width: 200,display: 'block', margin: '0 auto', marginBottom: '20px' }}  onChange={handleFilterChange}>
@@ -58,7 +68,7 @@ const FeedbackList = () => {
             <Row key={JSON.stringify(feedbacks)} gutter={[16, 16]}>
                 {filteredFeedbacks.map((feedback) => (
                     <Col key={feedback._id} xs={24} sm={12} md={8} lg={6}>
-                        <Card>
+                        <Card style={{backgroundColor:'#E6E6FA'}}>
                             <p>Name: {feedback.name} </p>
                             {/* <p>Email: {feedback.email}</p> */}
                             <p>: {feedback.filterOption}</p>
@@ -69,7 +79,7 @@ const FeedbackList = () => {
           </Col>
         ))}
       </Row>
-      </div>
+     
       <AppFooter></AppFooter>
     </>
     
