@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Form, Rate, Select,message} from 'antd';
 import Button from '../../Components/Button';
 import { AddFeedback } from '../../apicalls/feedback';
-import AppFooter from '../Footer';
-import AppHeader from '../Header';
+
 
 
 
@@ -27,8 +26,7 @@ function CreateFeedback() {
       setIsSuccess(true);
       message.success('Successfully added!');
       form.resetFields();
-      
-     
+    
     } catch (error) {
       console.error(error);
     }
@@ -37,10 +35,10 @@ function CreateFeedback() {
 
   return (
     <div>
-    <AppHeader></AppHeader>
-    <div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '24px', margin: '20px 0' }}>Cool Planet</div>
+    
+    <div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '24px', margin: '20px 0' }}>Feedbacks</div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div style={{ maxWidth: '800px', width: '100%' }}>
+        <div style={{ maxWidth: '500px', width: '100%' }}>
         {isSuccess && <p className="text-green-500 mb-2">Successfully added!</p>}
         <hr />
         <Form
@@ -56,7 +54,7 @@ function CreateFeedback() {
               placeholder="Name"
               value={values.name}
               onChange={(e) => setValues({ ...values, name: e.target.value })}
-              style={{ width: '80%' }}
+              style={{ width: '90%', margin: '0 20px 20px 0',height: '25px' }}
             />
           </Form.Item>
           <Form.Item label="Email" name="email"
@@ -66,7 +64,7 @@ function CreateFeedback() {
               placeholder="Email"
               value={values.email}
               onChange={(e) => setValues({ ...values, email: e.target.value })}
-              style={{ width: '80%' }}
+              style={{ width: '90%',height: '25px', }}
             />
             </Form.Item>
           <Form.Item label="Select the Package" name="filterOption"
@@ -107,12 +105,13 @@ function CreateFeedback() {
               style={{ margin: '10px 10px 10px 0', width: 'calc(100% - 10px)' }}
             />
           </Form.Item>
-
-          <Button title="Submit" type="submit" color="secondary" />
+          <Form.Item style={{ textAlign: 'center' }}>
+          <Button title="Submit" type="submit" color="secondary"style={{ backgroundColor: 'purple' }}/>
+          </Form.Item>
         </Form>
       </div>
     </div>
-    <AppFooter></AppFooter>
+    
     </div>
   );
 }
