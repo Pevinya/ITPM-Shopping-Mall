@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Rate, Select,message} from 'antd';
-import Button from '../../Components/Button';
+import { Form, Rate, Select,message,Button} from 'antd';
 import { AddFeedback } from '../../apicalls/feedback';
+import AppFooter from '../Footer';
+import AppHeader from '../Header';
 
 
 
@@ -16,14 +17,14 @@ function CreateFeedback() {
     rate: 0,
     text: ''
   });
-  const [isSuccess, setIsSuccess] = useState(false);
+  // const [isSuccess, setIsSuccess] = useState(false);
 
   const onFinish = async (values) => {
     console.log('Success:', values);
     try {
       const response = await AddFeedback(values);
       console.log(response);
-      setIsSuccess(true);
+      // setIsSuccess(true);
       message.success('Successfully added!');
       form.resetFields();
     
@@ -35,39 +36,46 @@ function CreateFeedback() {
 
   return (
     <div>
-    
+     <AppHeader />
     <div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '24px', margin: '20px 0' }}>Feedbacks</div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div style={{ maxWidth: '500px', width: '100%' }}>
-        {isSuccess && <p className="text-green-500 mb-2">Successfully added!</p>}
-        <hr />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: '600px', width: '100%' }}>
+        {/* {isSuccess && <p className="text-green-500 mb-2">Successfully added!</p>} */}
+        
         <Form
           form={form}
           layout="vertical"
           onFinish={onFinish}
           initialValues={values}
         >
-          <Form.Item label="Name" name="name"
-           rules={[{ required: true, message: 'Name is required' }]}>
+          <Form.Item 
+          label="Name" 
+          name="name"
+          rules={[{ required: true, message: 'Name is required' }]}>
             <input
-              type="text"
+              // name="text"
               placeholder="Name"
               value={values.name}
               onChange={(e) => setValues({ ...values, name: e.target.value })}
-              style={{ width: '90%', margin: '0 20px 20px 0',height: '25px' }}
+              style={{ width: '100%',height: '25px' }}
             />
+            
           </Form.Item>
-          <Form.Item label="Email" name="email"
-           rules={[{ required: true, message: 'Email is required' }]}>
+          <Form.Item 
+          label="Email" 
+          name="email"
+          rules={[{ required: true, message: 'Email is required' }]}>
             <input
-              type="email"
+              // type="email"
               placeholder="Email"
               value={values.email}
               onChange={(e) => setValues({ ...values, email: e.target.value })}
-              style={{ width: '90%',height: '25px', }}
+              style={{ width: '100%',height: '25px', }}
             />
             </Form.Item>
-          <Form.Item label="Select the Package" name="filterOption"
+          <Form.Item 
+          label="Select the Package" 
+          name="filterOption"
           rules={[{ required: true, message: 'Package selection required' }]}>
             <Select
               placeholder="Select a filter option"
@@ -81,13 +89,16 @@ function CreateFeedback() {
             </Select>
           </Form.Item>
           
-          <Form.Item label="Rate" name="rate">
+          <Form.Item 
+          label="Rate" 
+          name="rate">
             <Rate
               count={5}
               style={{ color: 'gold' }}
               tooltips={['Unacceptable', 'Needs Improvement ', 'Acceptable','Good','Excellent']}
               onChange={(value) => setValues({ ...values, rate: value })}
             />
+            
           </Form.Item>
          
 
@@ -98,7 +109,6 @@ function CreateFeedback() {
           >
 
             <textarea
-
               autoSize={{ minRows: 3, maxRows: 6 }}
               value={values.text}
               onChange={(e) => setValues({ ...values, text: e.target.value })}
@@ -106,12 +116,14 @@ function CreateFeedback() {
             />
           </Form.Item>
           <Form.Item style={{ textAlign: 'center' }}>
-          <Button title="Submit" type="submit" color="secondary"style={{ backgroundColor: 'purple' }}/>
+          <Button type="primary" title="Submit" color="secondary"style={{ backgroundColor: 'purple' }}>
+            Submit
+            </Button>
           </Form.Item>
         </Form>
       </div>
     </div>
-    
+    <AppFooter />
     </div>
   );
 }

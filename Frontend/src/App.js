@@ -18,12 +18,18 @@ import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
 import Cosmetics from './pages/Levels/cosmetics';
 import Community from './pages/Community/types';
+import Shoppers from './pages/Community/Shoppers';
+
+
+// import Community from './pages/Community/types';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
 import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
+
+
 
 import ProtectedRoute from './Components/ProtectedRoute';
 import ShowProducts from './pages/showProduct';
@@ -62,6 +68,8 @@ function App() {
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
 
+          <Route exact path="/add-community/:name" element={<Shoppers />} />
+
 
 
 
@@ -73,7 +81,7 @@ function App() {
            <Route path='/level4' element={<Cosmetics/>}/>
            <Route path='/community' element={<Community/>}/>
             
-        {/* <Route exact path="/add-community/:name" element={<Foodie />} /> */}
+       
 
 
           

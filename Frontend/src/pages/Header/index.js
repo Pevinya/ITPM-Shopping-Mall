@@ -35,6 +35,7 @@ const AppHeader = () => {
             <li>
               <a href="#community" onClick={() => handleClick('community')} style={{ color: activeMenu === 'community' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Community</a>
             </li>
+    
           </ul>
         </nav>
       </div>
