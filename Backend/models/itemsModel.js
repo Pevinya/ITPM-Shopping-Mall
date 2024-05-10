@@ -5,6 +5,10 @@ const itemSchema = new mongoose.Schema({
         type: String,
         //required: true
     },
+    shopCode:{
+        type: String,
+        unique: true
+    },
     shop: {
         type: String,
         required: true,

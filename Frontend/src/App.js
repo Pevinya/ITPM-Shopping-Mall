@@ -3,11 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Users from './pages/Profile';
+//import Users from './pages/Profile';
+
 
 import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
+import AddProductForm from './pages/addProducts';
+
 
 import CreatePackages from './pages/CreatePackages';
 import Shopping from './pages/shoppingPage';
@@ -18,6 +21,7 @@ import Community from './pages/Community/types';
 import Shoppers from './pages/Community/Shoppers';
 
 
+// import Community from './pages/Community/types';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
@@ -32,10 +36,10 @@ import ShowProducts from './pages/showProduct';
 import StoreDirectory from './pages/Levels/groceries';
 import AdminAdd from './pages/adminAdd';
 import ShowShopsProducts from './pages/showShopsProduct';
-import AddProductForm from './pages/addProducts';
+
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
-import UserTable from './pages/Profile';
+//import UserTable from './pages/Profile';
 import UserDetailsForm from './pages/Profile/viewprofile';
 import ShoppingListView from './pages/shoppinglist/listview';
 
@@ -59,17 +63,12 @@ function App() {
 
 
 
-
-
           {/*Lakitha */}
           <Route path='/feedback' element={<CreateFeedback />} />
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
 
           <Route exact path="/add-community/:name" element={<Shoppers />} />
-
-
-
 
 
 
@@ -97,20 +96,15 @@ function App() {
             <Route path='/level1' element={<StoreDirectory/>}/>
             <Route path='/level2' element={<Clothes/>}/>
             <Route path='/showProducts' element={<ShowProducts/>}/>
-            <Route path='/ShowProducts/:name' element={<ShowShopsProducts/>}/>
+            <Route path='/show-Products/:name' element={<ShowShopsProducts/>}/>
             <Route path='/adminAdd' element={<AdminAdd/>}/>
-            <Route exact path="/show-product/:name" element={<AddProductForm />} />
+            <Route exact path="/add-product/:name" element={<AddProductForm />} />
+            {/* <Route path='/showOneProduct' element={<ShowOneProduct/>}/> */}
+            
 
 
 
 
-                    
-
-
-
-
-
-    
           
         </Routes>
       </BrowserRouter>
