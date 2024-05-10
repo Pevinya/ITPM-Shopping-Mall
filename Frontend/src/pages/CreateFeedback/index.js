@@ -109,7 +109,6 @@ function CreateFeedback() {
           >
 
             <textarea
-
               autoSize={{ minRows: 3, maxRows: 6 }}
               value={values.text}
               onChange={(e) => setValues({ ...values, text: e.target.value })}
