@@ -4,8 +4,9 @@ import AppFooter from '../Footer';
 import AppHeader from '../Header';
 import axios from 'axios';
 
-const ShowProducts = () => {
+const ShowProducts = ({ location }) => {
   const [products, setProducts] = useState([]);
+  const pageTitle = location && location.state ? location.state.pageTitle : 'Default Title'; // Check if location and location.state exist
 
   useEffect(() => {
     // Function to fetch products from the backend API
@@ -36,8 +37,9 @@ const ShowProducts = () => {
   return (
     <div>
       <AppHeader />
+      
       <div style={{ padding: '20px', background: '#fff', textAlign: 'center' }}>
-        <h2 style={{ padding: '10px', color: '#5e2a84', margin: '10px 0 20px 0', fontSize: '30px', fontFamily: '"Times New Roman", Times, serif' }}>Cool Planet</h2>
+        <h2 style={{ padding: '10px', color: '#5e2a84', margin: '10px 0 20px 0', fontSize: '30px', fontFamily: '"Times New Roman", Times, serif' }}>{pageTitle}</h2> {/* Use pageTitle prop for dynamic title */}
         <Row gutter={[16, 24]} style={{ padding: '10px', maxWidth: 1200, margin: '0 auto' }}>
           {products.map((product) => (
             <Col key={product._id} xs={24} sm={12} md={8} lg={8}>

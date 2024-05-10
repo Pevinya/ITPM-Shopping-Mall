@@ -11,33 +11,33 @@ const { ref, uploadBytes, getDownloadURL } = require('firebase/storage');
 const getCurrentDateTimeString = () => {
     // Get the current date and time
     const currentDate = new Date();
-  
+
     // Format the date and time as a string
     const dateTimeString = currentDate.toISOString().replace(/[-:.]/g, '');
-  
+
     return dateTimeString;
-  };
+};
 
 const uploadImage = async (file, foldername, imagename) => {
-  try {
-    if (!file) {
-      console.log("Error: No file provided");
-      return null;
+    try {
+        if (!file) {
+            console.log("Error: No file provided");
+            return null;
+        }
+
+        const imageRef = ref(storage, `${foldername}/${imagename}.jpg`);
+
+        // Upload the file to Firebase Storage
+        await uploadBytes(imageRef, file.buffer);
+
+        // Get the download URL of the uploaded image
+        const imageUrl = await getDownloadURL(imageRef);
+
+        return imageUrl;
+    } catch (error) {
+        console.error("Error uploading image:", error);
+        throw new Error(`Error uploading image: ${error.message}`);
     }
-
-    const imageRef = ref(storage, `${foldername}/${imagename}.jpg`);
-    
-    // Upload the file to Firebase Storage
-    await uploadBytes(imageRef, file.buffer);
-
-    // Get the download URL of the uploaded image
-    const imageUrl = await getDownloadURL(imageRef);
-
-    return imageUrl;
-  } catch (error) {
-    console.error("Error uploading image:", error);
-    throw new Error(`Error uploading image: ${error.message}`);
-  }
 };
 
 // Add items
@@ -55,24 +55,39 @@ const uploadImage = async (file, foldername, imagename) => {
 //     }
 // });
 
-router.post("/add-items",upload.single("file"), async (req, res) => {
+router.post("/add-items", upload.single("file"), async (req, res) => {
     try {
-        const { name, shop, price, size, color, description } = req.body;
+        const { name, shopCode, shop, price, size, color, description } = req.body;
         if (!req.file) {
             return res.status(400).json({ message: "No file uploaded" });
-          }
-          const imagefile = req.file;
-          const uniqueName = getCurrentDateTimeString();
-          const imageUrl = await uploadImage(imagefile, name , uniqueName);
+        }
+        const imagefile = req.file;
+        const uniqueName = getCurrentDateTimeString();
+        const imageUrl = await uploadImage(imagefile, name, uniqueName);
         // Convert the file buffer to a base64-encoded string
         // const productImage = req.file.buffer.toString('base64');
-        const newItem = await Item.create({ title:name, shop, price, size, color, description, productImage:imageUrl });
+        const newItem = await Item.create({ title: name, shopCode, shop, price, size, color, description, productImage: imageUrl });
         return res.json({ success: true, data: newItem });
     } catch (error) {
         return res.status(500).json({ success: false, message: error.message });
     }
 
 });
+
+router.get("/get-items/:shop", async (req, res) => {
+    try {
+        const shop = req.params.shop;
+        const items = await Item.find({ shop: shop });
+        if (!items || items.length === 0) {
+            return res.status(404).json({ success: false, message: "No items found for the given shop" });
+        }
+        return res.json({ success: true, data: items });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: error.message });
+    }
+});
+
+
 
 
 // Update an item
