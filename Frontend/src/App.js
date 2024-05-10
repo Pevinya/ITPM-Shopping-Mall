@@ -5,9 +5,12 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 //import Users from './pages/Profile';
 
+
 import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
+import AddProductForm from './pages/addProducts';
+
 
 import CreatePackages from './pages/CreatePackages';
 import Shopping from './pages/shoppingPage';
@@ -88,7 +91,7 @@ function App() {
             <Route path='/show-Products/:name' element={<ShowShopsProducts/>}/>
             <Route path='/adminAdd' element={<AdminAdd/>}/>
             <Route exact path="/add-product/:name" element={<AddProductForm />} />
-            <Route path='/showOneProduct' element={<ShowOneProduct/>}/>
+            {/* <Route path='/showOneProduct' element={<ShowOneProduct/>}/> */}
             
 
 
