@@ -27,7 +27,7 @@ import ShowProducts from './pages/showProduct';
 import StoreDirectory from './pages/Levels/groceries';
 import AdminAdd from './pages/adminAdd';
 import ShowShopsProducts from './pages/showShopsProduct';
-import AddProductForm from './pages/addProducts';
+
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
 //import UserTable from './pages/Profile';
@@ -54,15 +54,10 @@ function App() {
 
 
 
-
-
           {/*Lakitha */}
           <Route path='/feedback' element={<CreateFeedback />} />
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
-
-
-
 
 
 
@@ -90,20 +85,15 @@ function App() {
             <Route path='/level1' element={<StoreDirectory/>}/>
             <Route path='/level2' element={<Clothes/>}/>
             <Route path='/showProducts' element={<ShowProducts/>}/>
-            <Route path='/ShowProducts/:name' element={<ShowShopsProducts/>}/>
+            <Route path='/show-Products/:name' element={<ShowShopsProducts/>}/>
             <Route path='/adminAdd' element={<AdminAdd/>}/>
-            <Route exact path="/show-product/:name" element={<AddProductForm />} />
+            <Route exact path="/add-product/:name" element={<AddProductForm />} />
+            <Route path='/showOneProduct' element={<ShowOneProduct/>}/>
+            
 
 
 
 
-                    
-
-
-
-
-
-    
           
         </Routes>
       </BrowserRouter>

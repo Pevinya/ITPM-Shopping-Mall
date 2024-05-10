@@ -19,7 +19,7 @@ import nutsLogo from '../../images/storeDirectoryImg/groceries/nutsandMurukku.jp
 import macmartLogo from '../../images/storeDirectoryImg/groceries/mcMart.jpeg';
 import finchLogo from '../../images/storeDirectoryImg/groceries/finch.jpeg';
 
-const AddProductsPage = () => {
+const ShowProductsPage = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedLevel, setSelectedLevel] = useState('Level 1');
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ const AddProductsPage = () => {
     };
 
     const handleCardClick = (productName) => {
-        navigate(`/show-product/${productName}`);
+        navigate(`/show-Products/${productName}`, { state: { pageTitle: 'Add Products' }});
     };
 
     return (
@@ -110,4 +110,4 @@ const AddProductsPage = () => {
     );
 };
 
-export default AddProductsPage;
+export default ShowProductsPage;
