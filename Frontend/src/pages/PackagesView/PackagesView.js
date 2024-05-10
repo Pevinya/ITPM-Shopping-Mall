@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { DeletePackage, GetAllPackages } from "../../apicalls/package";
 import AppFooter from "../Footer";
 import AppHeader from "../Header";
-import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons"; // Import icons
+import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 
-import "./PackagesView.css"; // Assuming you have specific styles for this component
+import "./PackagesView.css"; 
 
 const PackagesView = () => {
   const [packages, setPackages] = useState([]);
@@ -102,10 +102,8 @@ const PackagesView = () => {
           </Link>
         </Button>
       </div>
-      <div
-        className="table-container" // Added class for styling
-      >
-        <Table columns={columns} dataSource={packages} rowKey="_id" />
+      <div className="table-container">
+        <Table columns={columns} dataSource={packages} rowKey="_id" bordered />
       </div>
       <AppFooter />
     </div>
