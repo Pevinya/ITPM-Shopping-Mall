@@ -20,14 +20,14 @@ const JoinCommunity = () => {
     const allCommunities = {
         'Community': [
             { id: 1, name: "Foodie", logo: foodLogo},
-            { id: 2, name: "Kids & Family", logo: kidsnfamilyLogo},
+            { id: 2, name: "KidsFamily", logo: kidsnfamilyLogo},
             { id: 3, name: "Leisure", logo: leisureLogo},
             { id: 4, name: "Shoppers", logo: shoppersLogo}
         ],
     };
 
     const handleCardClick = (communityName) => {
-        navigate(`/joining-community/${communityName}`);
+        navigate(`/${communityName.toLowerCase()}`);
     };
 
     return (
