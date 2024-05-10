@@ -34,7 +34,7 @@ const JoinCommunity = () => {
         <div style={{ background: '#f0f2f5', minHeight: '100vh' }}>
             <AppHeader />
             <div style={{ padding: '20px', background: '#fff', borderRadius: '8px' }}>
-                <Title level={2} style={{ textAlign: 'center', marginBottom: '30px' }}>Communities</Title>
+                <Title level={2} style={{ textAlign: 'center', marginBottom: '30px', color: '#6A0DAD', fontFamily: 'Allegro'}}>Explore Communities</Title>
                 <div style={{ textAlign: 'center', marginBottom: '30px' }}>
                     <Paragraph style={{ marginTop: '10px' }}>Life is an adventure, built on what you love. Match with your unique community for a more personal experience based on your interests, and discover people like you along the way.</Paragraph>
                     <Paragraph style={{ marginTop: '10px' }}>Welcome to our community directory. Explore and join communities based on your interests!</Paragraph>
