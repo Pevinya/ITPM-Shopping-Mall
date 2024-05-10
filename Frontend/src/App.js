@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Users from './pages/Profile';
+//import Users from './pages/Profile';
 
 import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
@@ -14,7 +14,7 @@ import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
 import Cosmetics from './pages/Levels/cosmetics';
-import AdminAdded from './pages/Community/types';
+import Community from './pages/Community/types';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
@@ -30,7 +30,7 @@ import ShowShopsProducts from './pages/showShopsProduct';
 import AddProductForm from './pages/addProducts';
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
-import UserTable from './pages/Profile';
+//import UserTable from './pages/Profile';
 import UserDetailsForm from './pages/Profile/viewprofile';
 import ShoppingListView from './pages/shoppinglist/listview';
 
@@ -73,7 +73,7 @@ function App() {
            <Route path='/package' element={<CreatePackages />} />
            <Route path='/level3' element={<Phones/>}/>
            <Route path='/level4' element={<Cosmetics/>}/>
-           <Route path='/adminAdded' element={<AdminAdded/>}/>
+           <Route path='/community' element={<Community/>}/>
             
         {/* <Route exact path="/add-community/:name" element={<Foodie />} /> */}
 

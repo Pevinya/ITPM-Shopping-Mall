@@ -12,33 +12,28 @@ import shoppersLogo from '../../images/storeDirectoryImg/communities/shoppers.jp
 
 const { Title, Paragraph } = Typography;
 
-const AddPackageForm = () => {
+const JoinCommunity = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedLevel] = useState('Community');
     const navigate = useNavigate();
 
     const allCommunities = {
         'Community': [
-            { id: 1, name: "Foodie", logo: foodLogo, description: "The Foodie community is all about sharing your love for food and discovering new culinary experiences." },
-            { id: 2, name: "Kids & Family", logo: kidsnfamilyLogo, description: "Join the Kids & Family community to connect with other parents and discover family-friendly activities and events." },
-            { id: 3, name: "Leisure", logo: leisureLogo, description: "The Leisure community is perfect for those who enjoy hobbies, relaxation, and exploring new interests." },
-            { id: 4, name: "Shoppers", logo: shoppersLogo, description: "Join the Shoppers community to find the best deals, share shopping tips, and discover new products." }
+            { id: 1, name: "Foodie", logo: foodLogo},
+            { id: 2, name: "Kids & Family", logo: kidsnfamilyLogo},
+            { id: 3, name: "Leisure", logo: leisureLogo},
+            { id: 4, name: "Shoppers", logo: shoppersLogo}
         ],
     };
 
     const handleCardClick = (communityName) => {
-        navigate(`/add-community/${communityName}`);
-    };
-
-    const handleJoinCommunity = (communityName) => {
-        // Add logic for joining the community
-        console.log(`Joining ${communityName} community`);
+        navigate(`/joining-community/${communityName}`);
     };
 
     return (
         <div style={{ background: '#f0f2f5', minHeight: '100vh' }}>
             <AppHeader />
-            <div style={{ padding: '20px', background: '#fff' }}>
+            <div style={{ padding: '20px', background: '#fff', borderRadius: '8px' }}>
                 <Title level={2} style={{ textAlign: 'center', marginBottom: '30px' }}>Communities</Title>
                 <div style={{ textAlign: 'center', marginBottom: '30px' }}>
                     <Paragraph style={{ marginTop: '10px' }}>Life is an adventure, built on what you love. Match with your unique community for a more personal experience based on your interests, and discover people like you along the way.</Paragraph>
@@ -47,7 +42,7 @@ const AddPackageForm = () => {
                 <Input
                     placeholder="Search community"
                     prefix={<SearchOutlined />}
-                    style={{ width: '500px', marginBottom: '20px' }}
+                    style={{ width: '100%', maxWidth: '500px', marginBottom: '20px' }}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <Row gutter={[16, 16]} justify="center">
@@ -57,12 +52,12 @@ const AddPackageForm = () => {
                             <Col key={index} xs={24} sm={12} md={8} lg={6}>
                                 <Card
                                     hoverable
-                                    style={{ textAlign: 'center', cursor: 'pointer' }}
-                                    cover={<img alt={community.name} src={community.logo} style={{ width: '100%', maxHeight: '200px', objectFit: 'cover' }} />}
+                                    style={{ textAlign: 'center', cursor: 'pointer', borderRadius: '8px' }}
+                                    cover={<img alt={community.name} src={community.logo} style={{ width: '100%', maxHeight: '200px', objectFit: 'cover', borderTopLeftRadius: '8px', borderTopRightRadius: '8px' }} />}
                                     onClick={() => handleCardClick(community.name)}
                                 >
-                                    <Title level={4}>{community.name}</Title>
-                                    <Button type="primary" style={{ background: '#d3adf7', border: 'none' }} onClick={() => handleJoinCommunity(community.name)}>Join the community</Button>
+                                    <Title level={4} style={{ margin: '10px 0' }}>{community.name}</Title>
+                                    <Button type="primary" style={{ background: '#d3adf7', border: 'none', borderRadius: '4px' }}>Join the community</Button>
                                 </Card>
                             </Col>
                         ))}
@@ -73,4 +68,4 @@ const AddPackageForm = () => {
     );
 };
 
-export default AddPackageForm;
+export default JoinCommunity;
