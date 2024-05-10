@@ -2,11 +2,12 @@ import { axiosInstance } from "./axiosInstance";
 
 export const AddFeedback = async (payload) => {
     try {
-        console.log(payload)
+        
         const response = await axiosInstance.post("/api/feedback/add-feedback", payload);
         console.log(response)
         return response.data;       
     } catch (error) {
+        console.log(error)
         throw error;       
     }
 };

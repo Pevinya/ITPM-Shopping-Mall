@@ -5,6 +5,7 @@ import { AddFeedback } from '../../apicalls/feedback';
 
 
 
+
 const { Option } = Select;
 function CreateFeedback() {
  
@@ -25,8 +26,7 @@ function CreateFeedback() {
       setIsSuccess(true);
       message.success('Successfully added!');
       form.resetFields();
-      
-     
+    
     } catch (error) {
       console.error(error);
     }
@@ -34,12 +34,11 @@ function CreateFeedback() {
 
 
   return (
-
-    <div className='h-screen bg-primary flex items-center justify-center'>
-      <div className='authentication-form bg-white p-3'>
-        <h1 className="text-secondary text-2xl font-bold mb-1">
-          PINNACLE ARCADE - Feedback
-        </h1>
+    <div>
+    
+    <div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '24px', margin: '20px 0' }}>Feedbacks</div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ maxWidth: '500px', width: '100%' }}>
         {isSuccess && <p className="text-green-500 mb-2">Successfully added!</p>}
         <hr />
         <Form
@@ -48,31 +47,28 @@ function CreateFeedback() {
           onFinish={onFinish}
           initialValues={values}
         >
-          <Form.Item label="Name" name="name">
+          <Form.Item label="Name" name="name"
+           rules={[{ required: true, message: 'Name is required' }]}>
             <input
               type="text"
               placeholder="Name"
               value={values.name}
               onChange={(e) => setValues({ ...values, name: e.target.value })}
+              style={{ width: '90%', margin: '0 20px 20px 0',height: '25px' }}
             />
           </Form.Item>
-          <Form.Item label="Email" name="email">
+          <Form.Item label="Email" name="email"
+           rules={[{ required: true, message: 'Email is required' }]}>
             <input
               type="email"
               placeholder="Email"
               value={values.email}
               onChange={(e) => setValues({ ...values, email: e.target.value })}
+              style={{ width: '90%',height: '25px', }}
             />
-          </Form.Item>
-          <Form.Item label="Rate" name="rate">
-            <Rate
-              count={5}
-              style={{ color: 'gold' }}
-              tooltips={['Bad', 'Good', 'Very Good']}
-              onChange={(value) => setValues({ ...values, rate: value })}
-            />
-          </Form.Item>
-          <Form.Item label="Select the Package" name="filterOption">
+            </Form.Item>
+          <Form.Item label="Select the Package" name="filterOption"
+          rules={[{ required: true, message: 'Package selection required' }]}>
             <Select
               placeholder="Select a filter option"
               onChange={(value) => setValues({ ...values, filterOption: value })}
@@ -84,6 +80,16 @@ function CreateFeedback() {
               <Option value="Shoppers">Shoppers</Option>
             </Select>
           </Form.Item>
+          
+          <Form.Item label="Rate" name="rate">
+            <Rate
+              count={5}
+              style={{ color: 'gold' }}
+              tooltips={['Unacceptable', 'Needs Improvement ', 'Acceptable','Good','Excellent']}
+              onChange={(value) => setValues({ ...values, rate: value })}
+            />
+          </Form.Item>
+         
 
           <Form.Item
             label="Feedback"
@@ -99,10 +105,13 @@ function CreateFeedback() {
               style={{ margin: '10px 10px 10px 0', width: 'calc(100% - 10px)' }}
             />
           </Form.Item>
-
-          <Button title="Submit" type="submit" color="secondary" />
+          <Form.Item style={{ textAlign: 'center' }}>
+          <Button title="Submit" type="submit" color="secondary"style={{ backgroundColor: 'purple' }}/>
+          </Form.Item>
         </Form>
       </div>
+    </div>
+    
     </div>
   );
 }
