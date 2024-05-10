@@ -3,18 +3,18 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Users from './pages/Profile';
+//import Users from './pages/Profile';
 
 import CreateFeedback from './pages/CreateFeedback';
 import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
 
-import Packages from './pages/Packages';
+import CreatePackages from './pages/CreatePackages';
 import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
 import Cosmetics from './pages/Levels/cosmetics';
-
+import Community from './pages/Community/types';
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
@@ -23,15 +23,16 @@ import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
 
 import ProtectedRoute from './Components/ProtectedRoute';
-import AddProductForm from './pages/addProducts';
 import ShowProducts from './pages/showProduct';
 import StoreDirectory from './pages/Levels/groceries';
 import AdminAdd from './pages/adminAdd';
 import ShowShopsProducts from './pages/showShopsProduct';
-import ShowOneProduct from './pages/showOneProduct.js';
 
 import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
+//import UserTable from './pages/Profile';
+import UserDetailsForm from './pages/Profile/viewprofile';
+import ShoppingListView from './pages/shoppinglist/listview';
 
 
 function App() {
@@ -43,7 +44,10 @@ function App() {
           <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/profile' element={<Users/>} />
+          <Route path='/UserDetailsForm' element={<UserDetailsForm/>} />
+          
+          <Route path='/ShoppingListView' element={<ShoppingListView/>} />
+        
 
 
 
@@ -61,9 +65,12 @@ function App() {
 
 
            {/*Nishedi */}
-           <Route path='/package' element={<Packages />} />
+           <Route path='/package' element={<CreatePackages />} />
            <Route path='/level3' element={<Phones/>}/>
            <Route path='/level4' element={<Cosmetics/>}/>
+           <Route path='/community' element={<Community/>}/>
+            
+        {/* <Route exact path="/add-community/:name" element={<Foodie />} /> */}
 
 
           

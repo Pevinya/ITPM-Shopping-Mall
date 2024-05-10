@@ -33,3 +33,28 @@ export const GetLoggedInUserDetails = async () => {
     }
 };
 
+
+// Get all users
+export const getUsers = async () => {
+    try {
+        const response = await axiosInstance.get("/api/users");
+        console.log('Users fetched successfully:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Failed to fetch users:', error.response?.data || error.message);
+        throw error;
+    }
+};
+
+// Delete a user
+export const deleteUser = async (userId) => {
+    try {
+        const response = await axiosInstance.delete(`/api/users/${userId}`);
+        console.log('User deleted successfully:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Failed to delete user:', error.response?.data || error.message);
+        throw error;
+    }
+};
+
