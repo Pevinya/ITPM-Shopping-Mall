@@ -15,9 +15,7 @@ import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
 import Cosmetics from './pages/Levels/cosmetics';
 import Community from './pages/Community/types';
-
 import Shoppers from './pages/Community/Shoppers';
-
 
 
 
@@ -40,7 +38,6 @@ import AppFooter from './pages/Footer';
 import UserTable from './pages/Profile';
 import UserDetailsForm from './pages/Profile/viewprofile';
 import ShoppingListView from './pages/shoppinglist/listview';
-
 
 
 function App() {
@@ -70,8 +67,8 @@ function App() {
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
 
           <Route exact path="/add-community/:name" element={<Shoppers />} />
-          {/* <Route exact path="/add-community/:name" element={<KidsFamily />} /> */}
-         
+
+
 
 
 
@@ -85,7 +82,7 @@ function App() {
            <Route path='/level4' element={<Cosmetics/>}/>
            <Route path='/community' element={<Community/>}/>
             
-           {/* <Route exact path="/add-community/:name" element={<Foodie />} /> */}
+       
 
 
           

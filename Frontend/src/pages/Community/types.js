@@ -62,7 +62,6 @@ const AddPackageForm = () => {
                                     onClick={() => handleCardClick(community.name)}
                                 >
                                     <Title level={4}>{community.name}</Title>
-                                    
                                     <Button type="primary" style={{ background: '#d3adf7', border: 'none' }} onClick={() => handleJoinCommunity(community.name)}>Join the community</Button>
                                 </Card>
                             </Col>
