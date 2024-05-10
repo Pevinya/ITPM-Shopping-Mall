@@ -10,6 +10,10 @@ import DisplayFeedback from './pages/DisplayFeedback';
 import FeedbacksByUser from './pages/FeedbacksByUser';
 
 import CreatePackages from './pages/CreatePackages';
+import PackagesView from './pages/PackagesView/PackagesView';
+import UpdatePackageForm from "./pages/UpdatePackageForm/UpdatePackageForm";
+
+
 import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
@@ -71,6 +75,9 @@ function App() {
 
            {/*Nishedi */}
            <Route path='/package' element={<CreatePackages />} />
+           <Route path='/packagesView' element={<PackagesView />} />
+           <Route path='/update-package/:id' element={<UpdatePackageForm />} />
+           <Route path='/update-package-form/:id' element={<UpdatePackageForm />} />
            <Route path='/level3' element={<Phones/>}/>
            <Route path='/level4' element={<Cosmetics/>}/>
            <Route path='/community' element={<Community/>}/>
