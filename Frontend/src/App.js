@@ -14,13 +14,20 @@ import Shopping from './pages/shoppingPage';
 import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
 import Cosmetics from './pages/Levels/cosmetics';
-import AdminAdded from './pages/Community/types';
+import Community from './pages/Community/types';
+
+import Shoppers from './pages/Community/Shoppers';
+
+
+
 
 import './stylesheets/allignment.css';
 import './stylesheets/theme.css';
 import './stylesheets/sizes.css';
 import './stylesheets/customcomponenets.css';
 import './stylesheets/formelements.css';
+
+
 
 import ProtectedRoute from './Components/ProtectedRoute';
 import ShowProducts from './pages/showProduct';
@@ -33,6 +40,7 @@ import AppFooter from './pages/Footer';
 import UserTable from './pages/Profile';
 import UserDetailsForm from './pages/Profile/viewprofile';
 import ShoppingListView from './pages/shoppinglist/listview';
+
 
 
 function App() {
@@ -61,7 +69,9 @@ function App() {
           <Route path='/displayFeedbacks' element={<DisplayFeedback />} /> 
           <Route path='/feedbacksByUser' element={<FeedbacksByUser />} /> 
 
-
+          <Route exact path="/add-community/:name" element={<Shoppers />} />
+          {/* <Route exact path="/add-community/:name" element={<KidsFamily />} /> */}
+         
 
 
 
@@ -73,9 +83,9 @@ function App() {
            <Route path='/package' element={<CreatePackages />} />
            <Route path='/level3' element={<Phones/>}/>
            <Route path='/level4' element={<Cosmetics/>}/>
-           <Route path='/adminAdded' element={<AdminAdded/>}/>
+           <Route path='/community' element={<Community/>}/>
             
-        {/* <Route exact path="/add-community/:name" element={<Foodie />} /> */}
+           {/* <Route exact path="/add-community/:name" element={<Foodie />} /> */}
 
 
           
