@@ -54,7 +54,10 @@ const Foodies = () => {
 
                             <Form.Item>
                                 <Button type="primary" htmlType="submit" style={{ backgroundColor: 'purple', borderColor: 'purple' }}>
-                                    Submit
+                                    Monthly
+                                </Button>
+                                <Button type="primary" htmlType="submit" style={{ backgroundColor: 'purple', borderColor: 'purple', marginLeft: '10px' }}>
+                                    Annual
                                 </Button>
                             </Form.Item>
                         </Form>
