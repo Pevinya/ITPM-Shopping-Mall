@@ -26,17 +26,17 @@ const Home = () => {
           <Row gutter={[16, 16]}>
             {/* Replace Card components with your deal of the month cards */}
             <Col span={8}>
-              <Card hoverable cover={<img alt="Deal 1" src="https://img.freepik.com/free-photo/black-friday-sale-notebook-black-background_23-2148313039.jpg?t=st=1715433537~exp=1715437137~hmac=c1b38a5f461e50a9e189700d477c6fd0eb39f10172c244bfc2b9e429bebdff17&w=996" />}>
+              <Card hoverable cover={<img alt="Deal 1" src="https://img.freepik.com/free-photo/gift-boxes-black-friday-concept_23-2148663119.jpg?t=st=1715450871~exp=1715454471~hmac=9426c4bc8f716db8995aec68b8f49f51f991cfd8f70c17ce502bbed5a9eb5ff5&w=996" />}>
                 <Card.Meta title="Black Friday"/>
               </Card>
             </Col>
             <Col span={8}>
-              <Card hoverable cover={<img alt="Deal 2" src="https://img.freepik.com/free-photo/cyber-monday-sale-clock_23-2148669950.jpg?t=st=1715433686~exp=1715437286~hmac=509c5c123e386cb0f27b7ef99dcd5ae35c926cef243d6c6d9a03e5b2fa64466b&w=996" />}>
+              <Card hoverable cover={<img alt="Deal 2" src="https://img.freepik.com/free-vector/flat-polygonal-cyber-monday-background_23-2149095799.jpg?t=st=1715450907~exp=1715454507~hmac=18c938de5f665a9aa85cd86138d885ebaf5ba891835fc364f6bf91ce8ea2ba7c&w=996" />}>
                 <Card.Meta title="Cyber Monday" />
               </Card>
             </Col>
             <Col span={8}>
-              <Card hoverable cover={<img alt="Deal 3" src="https://img.freepik.com/free-photo/cropped-photo-red-roses-gift-box-table-reastaurant_1157-51850.jpg?t=st=1715433877~exp=1715437477~hmac=880621b4009ae41a0a453d7c00cef79422b03532ec5bfcf374d008f7c9aa3f36&w=996" />}>
+              <Card hoverable cover={<img alt="Deal 3" src="https://img.freepik.com/free-photo/romantic-black-couple-sitting-restaurant-wearing-elegant-clothes_1157-51941.jpg?t=st=1715451416~exp=1715455016~hmac=c71fdb8442b7c538fb383960f200bbd57b5c1b217548415216d76781b024b4ea&w=996" />}>
                 <Card.Meta title="Valentine offers" />
               </Card>
             </Col>
@@ -45,17 +45,17 @@ const Home = () => {
           <Row gutter={[16, 16]}>
             {/* Replace Card components with your sales cards */}
             <Col span={8}>
-              <Card hoverable cover={<img alt="Accessories" src="https://img.freepik.com/free-photo/elegantly-dressed-woman-makes-handmade-necklaces-working-with-needles-thread-jewelry-workshop_613910-21160.jpg?w=996&t=st=1715433120~exp=1715433720~hmac=0d0b3d1805d2bd546e5ca734d4bf47d5157aa00eab7e4fc0b0386f01ff99bcc0" />}>
+              <Card hoverable cover={<img alt="Accessories" src="https://img.freepik.com/free-photo/model-career-kit-still-life_23-2150229753.jpg?t=st=1715451113~exp=1715454713~hmac=b056defb89bd9605d82efa58d435abd6be9e2f3f2a5dd61c5c5af73abe4fcc89&w=996" />}>
                 <Card.Meta title="Accessories" />
               </Card>
             </Col>
             <Col span={8}>
-              <Card hoverable cover={<img alt="Homeware" src="https://img.freepik.com/free-photo/view-kitchen-utensils-flatlay_1098-19770.jpg?t=st=1715433325~exp=1715436925~hmac=c97dc89b8b63531b9330c0ba47fce78d39774cfbac87ee631b0f68019f708947&w=996" />}>
+              <Card hoverable cover={<img alt="Homeware" src="https://img.freepik.com/free-photo/wooden-cutlery-parsley_23-2148678005.jpg?t=st=1715451273~exp=1715454873~hmac=8343a500dbfc14bde55cc82fb7355cc23d109348e7e9d916beb452b85fce74cb&w=996" />}>
                 <Card.Meta title="Homeware"/>
               </Card>
             </Col>
             <Col span={8}>
-              <Card hoverable cover={<img alt="Health, Beauty & Wellness" src="https://img.freepik.com/free-photo/woman-spa_329181-13160.jpg?t=st=1715433470~exp=1715437070~hmac=cbf89957a4b87ec905aa2e8ee1448cf13f8a8127d74d6fe74305ddbdedc0f003&w=996" />}>
+              <Card hoverable cover={<img alt="Health, Beauty & Wellness" src="https://img.freepik.com/free-photo/beautiful-face-young-pretty-woman-with-healthy-skin-pink-flowers-isolated-white_186202-7584.jpg?t=st=1715451342~exp=1715454942~hmac=fa774e2bba0ccd01bfaec2d8b341883424ad39b479b8ba957b7f997637276c3a&w=826" />}>
                 <Card.Meta title="Health, Beauty & Wellness"/>
               </Card>
             </Col>
