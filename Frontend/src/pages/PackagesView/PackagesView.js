@@ -41,7 +41,7 @@ const PackagesView = () => {
   const columns = [
     { title: "Title", dataIndex: "title", key: "title" },
     { title: "Package Name", dataIndex: "packageName", key: "packageName" },
-    { title: "Price", dataIndex: "packagePrice", key: "packagePrice" },
+    { title: "Price $", dataIndex: "packagePrice", key: "packagePrice" },
     { title: "Description", dataIndex: "description", key: "description" },
     { title: "Advantages", dataIndex: "advantages", key: "advantages" },
     { title: "Added Date", dataIndex: "addedDate", key: "addedDate" },

@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Layout, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import logo from "../../images/home/Pinna-removebg-preview.png";
+import { Link, useLocation } from 'react-router-dom';
 
 const { Header } = Layout;
 
 const AppHeader = () => {
   const [activeMenu, setActiveMenu] = useState('home'); // State to track active menu item
+  const location = useLocation();
 
   const handleClick = (menu) => {
     setActiveMenu(menu);
@@ -21,19 +23,22 @@ const AppHeader = () => {
         <nav>
           <ul style={{ display: 'flex', listStyleType: 'none', margin: 0, padding: 230 }}>
             <li style={{ marginRight: '80px' }}>
-              <a href="#home" onClick={() => handleClick('home')} style={{ color: activeMenu === 'home' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Home</a>
+              <Link to="/home" onClick={() => handleClick('home')} style={{ color: location.pathname === '/' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Home</Link>
             </li>
             <li style={{ marginRight: '80px' }}>
-              <a href="#shopping" onClick={() => handleClick('shopping')} style={{ color: activeMenu === 'shopping' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Shopping</a>
+              <Link to="/shopping" onClick={() => handleClick('shopping')} style={{ color: location.pathname === '/shopping' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Shopping</Link>
             </li>
             <li style={{ marginRight: '80px' }}>
-              <a href="#events" onClick={() => handleClick('events')} style={{ color: activeMenu === 'events' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Events</a>
+              <Link to="/events" onClick={() => handleClick('events')} style={{ color: location.pathname === '/events' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Events</Link>
             </li>
             <li style={{ marginRight: '80px' }}>
-              <a href="#packages" onClick={() => handleClick('packages')} style={{ color: activeMenu === 'packages' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Packages</a>
+              <Link to="/packagesViewUser" onClick={() => handleClick('packagesViewUser')} style={{ color: location.pathname === '/packagesViewUser' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Packages</Link>
             </li>
-            <li>
-              <a href="#community" onClick={() => handleClick('community')} style={{ color: activeMenu === 'community' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Community</a>
+            <li style={{ marginRight: '80px' }}>
+              <Link to="/community" onClick={() => handleClick('community')} style={{ color: location.pathname === '/community' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Community</Link>
+            </li>
+            <li style={{ marginRight: '80px' }}>
+             <Link to="/feedback" onClick={() => handleClick('Feedback')} style={{ color: location.pathname === '/feedback' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Feedback</Link>
             </li>
     
           </ul>
