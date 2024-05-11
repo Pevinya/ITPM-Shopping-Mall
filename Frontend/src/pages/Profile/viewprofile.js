@@ -1,35 +1,18 @@
 import React, { useState, useEffect } from "react";
 import {
-  Layout,
-  Menu,
-  Card,
-  Button,
-  Row,
-  Col,
-  Typography,
-  Modal,
-  Form,
-  Input,
+  Layout, Menu, Card, Button, Row, Col, Typography, Modal, Form, Input, Select, Upload, Avatar,
 } from "antd";
 import {
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
-  TeamOutlined,
-  EditOutlined,
-  DeleteOutlined,
-  LogoutOutlined,
+  PieChartOutlined, DesktopOutlined, ContainerOutlined, MailOutlined, TeamOutlined, EditOutlined,
+  DeleteOutlined, LogoutOutlined, UploadOutlined, UserOutlined,
 } from "@ant-design/icons";
-//import 'antd/dist/antd.css';
-import {
-  GetLoggedInUserDetails,
-  editUser,
-  deleteUser,
-} from "../../apicalls/users";
+import { GetLoggedInUserDetails, editUser, deleteUser } from "../../apicalls/users";
+import AppFooter from '../Footer';
+import AppHeader from '../Header';
 
 const { Header, Content, Sider } = Layout;
 const { Text } = Typography;
+const { Option } = Select;
 
 const AppLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -63,7 +46,7 @@ const AppLayout = () => {
       const response = await editUser(values);
       if (response.success) {
         console.log("User data updated successfully:", response.data);
-        setUserData(values);
+        setUserData(response.data); // Assuming the API returns the updated user data
       }
     } catch (err) {
       console.error("Failed to update user data:", err);
@@ -88,14 +71,11 @@ const AppLayout = () => {
     console.log("User deleted");
     const { password } = values;
     const { email } = userData;
-    console.log(password);
     try {
       const response = await deleteUser({ email, password });
       if (response.success) {
         console.log("User data deleted successfully:");
-        // remove token from localstorage
         localStorage.removeItem("token");
-        // redirect to login page
         window.location.href = "/login";
       }
     } catch (err) {
@@ -114,62 +94,51 @@ const AppLayout = () => {
           }}
         />
         <Menu theme="dark" defaultSelectedKeys={["4"]} mode="inline">
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Dashboard
-          </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Add Products
-          </Menu.Item>
-          <Menu.Item key="3" icon={<ContainerOutlined />}>
-            Shopping List
-          </Menu.Item>
-          <Menu.Item key="4" icon={<MailOutlined />}>
-            Update Profile
-          </Menu.Item>
-          <Menu.Item key="5" icon={<TeamOutlined />}>
-            Membership
-          </Menu.Item>
-          <Menu.Item key="6" icon={<EditOutlined />}>
-            My Reviews
-          </Menu.Item>
-          <Menu.Item key="7" icon={<LogoutOutlined />}>
-            Logout
-          </Menu.Item>
+          <Menu.Item key="1" icon={<PieChartOutlined />}>Dashboard</Menu.Item>
+          <Menu.Item key="3" icon={<ContainerOutlined />}>Shopping List</Menu.Item>
+          <Menu.Item key="4" icon={<MailOutlined />}>Update Profile</Menu.Item>
+          <Menu.Item key="5" icon={<TeamOutlined />}>Membership</Menu.Item>
+          <Menu.Item key="6" icon={<EditOutlined />}>My Reviews</Menu.Item>
+          <Menu.Item key="7" icon={<LogoutOutlined />}>Logout</Menu.Item>
         </Menu>
       </Sider>
       <Layout>
+        <AppHeader />
         <Header style={{ padding: 0, background: "#fff" }} />
-        <Content style={{ margin: "0 16px" }}>
-          <Row gutter={16}>
-            <Col span={24}>
-              <Card title="User Details" bordered={false}>
-                <p>
-                  <Text strong>Username:</Text> {userData?.name}
-                </p>
-                <p>
-                  <Text strong>Email:</Text> {userData?.email}
-                </p>
-                <Button
-                  type="primary"
-                  icon={<EditOutlined />}
-                  onClick={showEditModal}
-                  style={{ marginRight: 8 }}
-                >
-                  Edit
-                </Button>
-                <Button
-                  type="primary"
-                  icon={<DeleteOutlined />}
-                  onClick={showDeletModal}
-                  danger
-                >
-                  Delete
-                </Button>
-              </Card>
-            </Col>
-          </Row>
+        <Content style={{ margin: '0 16px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 134px)' }}>
+          <Card
+            title={<div style={{ fontSize: '24px', color: '#1890ff' }}>User Details</div>}
+            bordered={false}
+            style={{
+              width: '100%',
+              maxWidth: '600px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              borderRadius: '10px'
+            }}
+          >
+            <div style={{ marginBottom: '20px' }}>
+              <Avatar size={64} icon={<UserOutlined />} style={{ backgroundColor: '#1890ff', marginBottom: '10px' }} />
+            </div>
+            <p><Text strong>Username:</Text> {userData?.name}</p>
+            <p><Text strong>Email:</Text> {userData?.email}</p>
+            <p><Text strong>Phone:</Text> {userData?.phone}</p>
+            <p><Text strong>Age:</Text> {userData?.age}</p>
+            <p><Text strong>Gender:</Text> {userData?.gender}</p>
+            <p><Text strong>City:</Text> {userData?.city}</p>
+
+            <div style={{ marginTop: '20px' }}>
+              <Button type="primary" icon={<EditOutlined />} onClick={showEditModal} style={{ marginRight: 8 }}>
+                Edit
+              </Button>
+              <Button type="primary" icon={<DeleteOutlined />} onClick={showDeletModal} danger>
+                Delete
+              </Button>
+            </div>
+          </Card>
         </Content>
       </Layout>
+
+
       <Modal
         title="Edit User Details"
         visible={isModalVisible}
@@ -195,6 +164,37 @@ const AppLayout = () => {
           >
             <Input />
           </Form.Item>
+          <Form.Item
+            name="age"
+            label="Age"
+          >
+            <Input type="number" />
+          </Form.Item>
+          <Form.Item
+            name="gender"
+            label="Gender"
+          >
+            <Select placeholder="Select your gender">
+              <Option value="male">Male</Option>
+              <Option value="female">Female</Option>
+              <Option value="other">Other</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item
+            name="city"
+            label="City"
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="profilePic"
+            label="Profile Picture"
+            valuePropName="fileList"
+          >
+            <Upload name="profilePic" action="/upload" listType="picture">
+              <Button icon={<UploadOutlined />}>Click to upload</Button>
+            </Upload>
+          </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
               Save Changes
@@ -202,7 +202,6 @@ const AppLayout = () => {
           </Form.Item>
         </Form>
       </Modal>
-
       <Modal
         title="Enter your password"
         visible={isDeleteModalVisible}
@@ -212,12 +211,11 @@ const AppLayout = () => {
         <Form layout="vertical" onFinish={handleDeleteUser}>
           <Form.Item
             name="password"
-            label="password"
+            label="Password"
             rules={[{ required: true, message: "Please enter your password" }]}
           >
-            <Input />
+            <Input.Password />
           </Form.Item>
-
           <Form.Item>
             <Button type="primary" htmlType="submit" danger>
               Delete Account

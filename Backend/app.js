@@ -15,13 +15,14 @@ const itemRoute =require ("./routes/itemsRoutes");
 const feedbackRoute=require("./routes/feedbackRoute");
 const packagesRoute=require("./routes/packagesRoute");
 const shopRoute=require("./routes/shopRoute");
+const shoppingListRoutes = require("./routes/shoppingListRoutes")
 
 app.use("/api/users" , usersRoute);
 app.use("/api/package",packagesRoute);
 app.use("/api/item", itemRoute);
 app.use("/api/feedback",feedbackRoute);
 app.use("/api/shop",shopRoute);
-
+app.use('/api/shoppinglist', shoppingListRoutes);
 
 
 app.listen(PORT, () => {
