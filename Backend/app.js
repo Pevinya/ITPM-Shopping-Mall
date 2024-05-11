@@ -25,6 +25,7 @@ app.use("/api/shop",shopRoute);
 app.use('/api/shoppinglist', shoppingListRoutes);
 
 
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

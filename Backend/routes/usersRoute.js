@@ -202,4 +202,23 @@ router.put("/update-password", async (req, res) => {
     }
 });
 
+// Get all user details
+router.get("/users-list", authMiddleware, async (req, res) => {
+    try {
+        const users = await User.find({}).select('-password'); // Excluding the password from the result
+        return res.send({
+            success: true,
+            message: "All users fetched successfully",
+            data: users
+        });
+    } catch (error) {
+        console.log("Error in fetching all users:", error);
+        res.send({
+            success: false,
+            message: error.message
+        });
+    }
+});
+
+
 module.exports = router;
