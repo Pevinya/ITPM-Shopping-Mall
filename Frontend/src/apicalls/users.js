@@ -35,7 +35,7 @@ export const GetLoggedInUserDetails = async () => {
 // Get all users
 export const getUsers = async () => {
   try {
-    const response = await axiosInstance.get("/api/users");
+    const response = await axiosInstance.get("/api/users/users-list");
     console.log("Users fetched successfully:", response.data);
     return response.data;
   } catch (error) {

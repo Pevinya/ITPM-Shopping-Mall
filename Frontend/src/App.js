@@ -51,6 +51,7 @@ import AppFooter from './pages/Footer';
 //import UserTable from './pages/Profile';
 import UserDetailsForm from './pages/Profile/viewprofile';
 import ShoppingListView from './pages/shoppinglist/listview';
+import AdminManageProfiles from './pages/admindashbaord/viewadmindash';
 
 
 function App() {
@@ -63,7 +64,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/UserDetailsForm' element={<UserDetailsForm/>} />
-          
+          <Route path='/admindash' element={<AdminManageProfiles/>} />
           <Route path='/ShoppingListView' element={<ShoppingListView/>} />
         
          
