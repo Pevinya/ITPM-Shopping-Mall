@@ -1,0 +1,50 @@
+.site-sider {
+    background-color: #001529;
+  }
+  
+  .site-header {
+    padding: 0;
+    background: #1890ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .site-content {
+    margin: 16px;
+  }
+  
+  .user-details-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Additional styling for the menu */
+  .site-menu .ant-menu-item {
+    margin: 0;
+    padding: 10px 20px;
+  }
+  
+  /* Improved modal styling */
+  .ant-modal-content {
+    border-radius: 10px;
+  }
+  
+  /* Button styling for edit and delete */
+  .ant-btn-primary {
+    margin-right: 8px;
+  }
+  
+  .ant-btn-danger {
+    background-color: #ff4d4f;
+    border-color: #ff4d4f;
+  }
+  
+  .logo {
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

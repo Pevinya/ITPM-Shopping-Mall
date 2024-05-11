@@ -1,5 +1,4 @@
-
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -11,6 +10,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        //trim: true,
     },
     phone: {
         type: String,
@@ -23,16 +23,25 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        required: true,
-        default: "user",  //user,admin,
+        enum: ['user', 'admin'],
+        default: "user",
     },
     status: {
         type: String,
-        required: true,
-        default: "pending", //active, inactive , pending
+        enum: ['active', 'inactive', 'pending'],
+        default: "pending",
     },
-   }, 
-   { timestamps: true }
-);
+    age: {
+        type: Number,
+    },
+    gender: {
+        type: String,
+        enum: ['male', 'female', 'other'],
+    },
+    city: {
+        type: String,
+    },
+    
+}, { timestamps: true });
 
-module.exports  =mongoose.model("users", userSchema)
+module.exports = mongoose.model("User", userSchema);

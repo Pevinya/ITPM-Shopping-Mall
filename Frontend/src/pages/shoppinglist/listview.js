@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Input, Button, List, Modal, Form, DatePicker, Select } from 'antd';
 import { PlusOutlined, DeleteOutlined, SearchOutlined } from '@ant-design/icons';
+import axios from 'axios'; // Import axios for making HTTP requests
 import AppFooter from '../Footer';
 import AppHeader from '../Header';
-
 
 const { Option } = Select;
 
@@ -40,9 +40,19 @@ const ShoppingList = () => {
   const handleCreate = () => {
     form.validateFields()
        .then((values) => {
-         console.log('Received values of form: ', values, selectedItems);
          // Here you would handle the data submission to the backend
-         setVisible(false);
+         axios.post('http://localhost:5000/api/shoppinglist/shopping-lists', {
+           title: values.title,
+           date: values.date,
+           items: selectedItems.map(item => item.name) // Only sending names for now, adjust as needed
+         })
+         .then(response => {
+           console.log('Response from server:', response.data);
+           setVisible(false);
+         })
+         .catch(error => {
+           console.error('Error sending data:', error);
+         });
        })
        .catch((info) => {
          console.log('Validate Failed:', info);

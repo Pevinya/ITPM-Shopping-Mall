@@ -1,15 +1,38 @@
-import React from 'react';
-import { Row, Col, Card, Typography, Form, Checkbox, Button } from 'antd';
+import React, { useState } from 'react';
+import {Row, Col, Card, Typography, Form, Checkbox, Button,Popover, message } from 'antd';
 import AppHeader from '../Header';
 import shoper1 from "../../images/community/Special-offer.png";
 import shoper2 from "../../images/community/services.png";
 import shoper3 from "../../images/community/extrShop3.jpg";
+import QRCode from 'qrcode.react';
 
 const { Title } = Typography;
 
 const Shoppers = () => {
+    const [monthlyPopoverVisible, setMonthlyPopoverVisible] = useState(false);
+    const [annualPopoverVisible, setAnnualPopoverVisible] = useState(false);
+    const [subscriptionType, setSubscriptionType] = useState(null);
+
     const onFinish = (values) => {
         console.log('Received values:', values);
+    };
+
+    const handleMonthlyButtonClick = () => {
+        setSubscriptionType('Monthly');
+        setMonthlyPopoverVisible(true);
+        message.success('Monthly subscription activated successfully');
+    };
+
+    const handleAnnualButtonClick = () => {
+        setSubscriptionType('Annual');
+        setAnnualPopoverVisible(true);
+        message.success('Annual subscription activated successfully');
+    };
+
+    const handlePopoverClose = () => {
+        setMonthlyPopoverVisible(false);
+        setAnnualPopoverVisible(false);
+        setSubscriptionType(null);
     };
 
     return (
@@ -46,12 +69,34 @@ const Shoppers = () => {
                                 <Checkbox>Agree with community Terms & conditions</Checkbox>
                             </Form.Item>
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" style={{ backgroundColor: 'purple', borderColor: 'purple' }}>
-                                    Monthly
-                                </Button>
-                                <Button type="primary" htmlType="submit" style={{ backgroundColor: 'purple', borderColor: 'purple', marginLeft: '10px' }}>
-                                    Annual
-                                </Button>
+                                <Popover
+                                    content={
+                                        <QRCode value={`https://qrfy.com/p/x17JAPVOxw?utm_source=qrcode&utm_medium=landing&utm_campaign=39818059${subscriptionType}`} />
+                                    }
+                                    title="Monthly Subscription"
+                                    trigger="click"
+                                    visible={monthlyPopoverVisible}
+                                    onVisibleChange={setMonthlyPopoverVisible}
+                                    placement="bottom"
+                                >
+                                    <Button type="primary" onClick={handleMonthlyButtonClick} style={{ backgroundColor: 'purple', borderColor: 'purple' }}>
+                                        Monthly
+                                    </Button>
+                                </Popover>
+                                <Popover
+                                    content={
+                                        <QRCode value={`https://qrfy.com/p/qdVeFoRZ2z?utm_source=qrcode&utm_medium=landing&utm_campaign=39818234${subscriptionType}`} />
+                                    }
+                                    title="Annual Subscription"
+                                    trigger="click"
+                                    visible={annualPopoverVisible}
+                                    onVisibleChange={setAnnualPopoverVisible}
+                                    placement="bottom"
+                                >
+                                    <Button type="primary" onClick={handleAnnualButtonClick} style={{ backgroundColor: 'purple', borderColor: 'purple', marginLeft: '10px' }}>
+                                        Annual
+                                    </Button>
+                                </Popover>
                             </Form.Item>
                         </Form>
                     </Col>
