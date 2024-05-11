@@ -1,7 +1,6 @@
 import React , {useState,useEffect} from 'react';
-import { Modal, Form, Input, Row, Col,  message,  Rate } from 'antd';
+import { Modal, Form, Input, Row, Col,  message,  Rate ,Button} from 'antd';
 
-import Button from "../../Components/Button"
 import { UpdateFeedbackDetails } from '../../apicalls/feedback';
 
 
@@ -80,11 +79,17 @@ export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate
 
       </Row>
       <div className='flex justify-end gap-2 mt-1'>
-        <Button type='button' varient='outlined' title='Cancel' onClick={() => setOpen(false)} />
-        <Button title='Save' type='submit' loading={loading}></Button>
+         <Button type='primary'  title='Cancel' onClick={() => setOpen(false)} style={{ backgroundColor: 'red', color: 'white' }} >
+               Cancel
+            </Button>
+          
+         <Button type="primary" htmlType="submit" loading={loading} style={{ backgroundColor: 'green' }}>
+                  Save
+                </Button>
       </div>
     </Form>
     </Modal >
   
   );
 }
+
