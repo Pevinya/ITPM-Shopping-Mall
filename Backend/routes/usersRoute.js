@@ -35,45 +35,45 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//login a user
+/// Login a user
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      return res.send({
+      return res.status(404).send({
         success: false,
-        message: "User does not exist",
+        message: "User does not exist"
       });
     }
 
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) {
-      return res.send({
+      return res.status(401).send({
         success: false,
-        message: "Invalid Password",
+        message: "Invalid Password"
       });
     }
 
-    const token = jwt.sign({ userId: user._id }, process.env.jwt_secret, {
-      expiresIn: "1d",
+    const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, {
+      expiresIn: "1d"
     });
 
+    // Include the user's role in the response data
     return res.send({
       success: true,
-      message: "Login Successful",
-      data: token,
+      message: "Login successful",
+      data: { token, role: user.role }
     });
   } catch (error) {
     console.log("Error in login route:", error);
-    res.send({
+    res.status(500).send({
       success: false,
-      message: error.message,
+      message: error.message
     });
   }
 });
+
+
 
 //get logged in user details
 router.get("/get-logged-in-user", authMiddleware, async (req, res) => {
