@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState,useEffect} from 'react';
 import { Modal, Form, Input, Row, Col,  message,  Rate } from 'antd';
 
 import Button from "../../Components/Button"
@@ -12,6 +12,15 @@ import { UpdateFeedbackDetails } from '../../apicalls/feedback';
 export default function FeedbackForm({ open, setOpen, feedback, onFeedbackUpdate }) {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      form.setFieldsValue({
+        text: feedback.text,
+        rate: feedback.rate
+      });
+    }
+  }, [open, feedback, form]);
 
   const handleCancel = () => {
     form.resetFields();
