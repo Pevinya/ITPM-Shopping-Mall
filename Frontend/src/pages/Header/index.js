@@ -32,8 +32,11 @@ const AppHeader = () => {
             <li style={{ marginRight: '80px' }}>
               <a href="#packages" onClick={() => handleClick('packages')} style={{ color: activeMenu === 'packages' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Packages</a>
             </li>
-            <li>
+            <li style={{ marginRight: '80px' }}>
               <a href="#community" onClick={() => handleClick('community')} style={{ color: activeMenu === 'community' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Community</a>
+            </li>
+            <li style={{ marginRight: '80px' }}>
+             <a href="#Feedback" onClick={() => handleClick('Feedback')} style={{ color: activeMenu === 'Feedback' ? '#A875FF' : '#000', fontWeight: 'bold', textDecoration: 'none' }}>Feedback</a>
             </li>
     
           </ul>

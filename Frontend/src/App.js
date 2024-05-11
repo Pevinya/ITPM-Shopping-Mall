@@ -20,6 +20,9 @@ import Clothes from './pages/Levels/clothes';
 import Phones from './pages/Levels/phones';
 import Cosmetics from './pages/Levels/cosmetics';
 import Community from './pages/Community/types';
+import PackagesViewUser from './pages/PackagesViewUser/index';
+
+
 //import Shoppers from './pages/Community/Shoppers';
 
 
@@ -88,6 +91,7 @@ function App() {
            <Route path='/packagesView' element={<PackagesView />} />
            <Route path='/update-package/:id' element={<UpdatePackageForm />} />
            <Route path='/update-package-form/:id' element={<UpdatePackageForm />} />
+           <Route path="/packagesViewUser" element={< PackagesViewUser />} />
            <Route path='/level3' element={<Phones/>}/>
            <Route path='/level4' element={<Cosmetics/>}/>
            <Route path='/community' element={<Community/>}/>
@@ -96,6 +100,8 @@ function App() {
            <Route path="/foodie" element={<Foodies />} />
            <Route path="/kidsfamily" element={<KidsFamily />} />
            <Route path='/leisure' element={<Leisure />} />  
+           <Route path='/home' element={<Home />} />
+           
        
 
 
