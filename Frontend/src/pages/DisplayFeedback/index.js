@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Card, Row, Col, Select,Rate ,Button} from "antd";
+import { Card, Row, Col, Select,Rate,Button } from "antd";
 import { GetAllFeedbackDetails } from "../../apicalls/feedback";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AppFooter from '../Footer';
 import AppHeader from '../Header';
 
@@ -12,7 +12,6 @@ const { Option } = Select;
 const FeedbackList = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [selectedFilter, setSelectedFilter] = useState("All");
-  const history = useHistory();
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
@@ -32,9 +31,6 @@ const FeedbackList = () => {
   };
 
   const filteredFeedbacks = selectedFilter === "All" ? feedbacks : feedbacks.filter((feedback) => feedback.filterOption === selectedFilter);
-  const handleMyFeedbacksClick = () => {
-    history.push("/myfeedbacks"); // Navigate to '/myfeedbacks' route
-  };
 
   return (
     <>
@@ -54,7 +50,6 @@ const FeedbackList = () => {
         <hr />
         <div className='authentication-form bg-white p-1' style={{ marginTop: '20px' }}>
         <h6 style={{ fontSize: '18px', fontWeight: 'bold',textAlign: 'center' }}>filter Package</h6>
-        
           
         </div>
         
@@ -85,8 +80,14 @@ const FeedbackList = () => {
           </Col>
         ))}
       </Row>
-      <Button type="primary" style={{ position: 'fixed', right: '20px', bottom: '20px',backgroundColor:'purple' }}onClick={handleMyFeedbacksClick}>My Feedbacks</Button>
-      
+      <Link to="/feedbacksByUser">
+      <Button
+         type="primary"
+         style={{ position: 'absolute', top: 0, right: 0, marginTop: '100px', marginRight: '20px', backgroundColor: 'purple' }}
+         >
+         My feedbacks
+        </Button>
+      </Link>
      
       <AppFooter></AppFooter>
     </>

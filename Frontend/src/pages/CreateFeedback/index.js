@@ -40,7 +40,7 @@ function CreateFeedback() {
       <AppHeader />
       <div style={{ padding: '20px', background: '#fff' }}>
         <div style={{ display: 'flex', justifyContent: 'center', padding: '20px', width: '50%', alignItems: 'center',maxWidth: '6000px' }}>
-        <h3 style={{ fontSize: '24px', fontWeight: 'bold',marginLeft:'240px' }}>Provide Your Feedback</h3>
+        <h3 style={{ fontSize: '24px', fontWeight: 'bold',marginLeft:'530px' }}>Provide Your Feedback</h3>
          
             </div>
 
@@ -49,7 +49,7 @@ function CreateFeedback() {
               layout="vertical"
               onFinish={onFinish}
               initialValues={values}
-              style={{ background: '#f0f2f5', padding: '20px', borderRadius: '8px',width: '50%', margin: '0 auto' }}
+              style={{ background: '#f0f2f5', padding: '20px', borderRadius: '8px',width: '35%', margin: '0 auto' }}
             >
               <Form.Item
                 label="Name"

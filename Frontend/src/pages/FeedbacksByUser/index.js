@@ -4,7 +4,8 @@ import { DeleteFeedbackDetails, GetFeedbackDetails } from "../../apicalls/feedba
 import FeedbackForm from "./feedbacksForm";
 import AppFooter from '../Footer';
 import AppHeader from '../Header';
-
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 const { Meta } = Card;
 const { Option } = Select;
 
@@ -56,13 +57,20 @@ const FeedbackList = () => {
     return (
         <> 
          <AppHeader></AppHeader>
-        <div className='h-screen bg-primary items-center justify-center'>
-        <div className='authentication-form bg-white p-1'>
-          <h1 className="text-secondary text-2xl font-bold mb-4">Feedbacks</h1>
-        </div>
+         <div style={{ padding: '20px', background: '#fff' }}></div>
+        <h2 style={{ textAlign: 'center', fontSize: '30px', marginBottom: '30px', fontFamily: '"Times New Roman", Times, serif' }}>Feedbacks </h2>
+        
         <hr />
         <div className='authentication-form bg-white p-1' style={{ marginTop: '20px' }}>
-          <h2 className="text-secondary text-1 font-bold mb-2">Select the package</h2>
+        <h6 style={{ fontSize: '18px', fontWeight: 'bold',textAlign: 'center' }}>filter Package</h6>
+        <Link to="/feedback">
+        <Button
+         type="primary"
+         style={{ position: 'absolute', top: 0, right: 0, marginTop: '100px', marginRight: '20px', backgroundColor: 'purple' }}
+         >
+         Create Feedback
+        </Button>
+        </Link>
         </div>
         <Select defaultValue="All" style={{ width: 200 ,display: 'block', margin: '0 auto', marginBottom: '20px'}} onChange={handleFilterChange}>
             <Option value="All">All</Option>
@@ -88,7 +96,9 @@ const FeedbackList = () => {
                                                 setOpenFeedbackForm(true);
                                                 setFeedbackToUpdate(feedback);
                                             }}
-                                        >Update</Button>
+                                            icon={<EditOutlined />} />
+                                           
+                                            
                                     </div>
                                     <div>
                                         <Button title='Delete' 
@@ -96,8 +106,7 @@ const FeedbackList = () => {
                                                 DeleteFeedbackDetails(feedback._id);
                                                 handleFeedbackDelete();
                                             }}
-                                            
-                                        >Delete</Button>
+                                            type="danger" icon={<DeleteOutlined />}/>
                                        
                                     </div>
                                 </div>
@@ -108,9 +117,9 @@ const FeedbackList = () => {
                     </Col>
                 ))}
             </Row>
-            
-            </div>
+            <br></br>
             <AppFooter />
+            
             </>
     );
 };
