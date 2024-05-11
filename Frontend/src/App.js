@@ -51,6 +51,7 @@ import AdminManageProfiles from "./pages/admindashbaord/viewadmindash";
 import AdminHome from "./pages/Home/adminhome";
 import { Header } from "antd/es/layout/layout";
 import AppHeader1 from "./pages/Header1";
+import ViewProductForm from "./pages/addProducts/userview";
 
 function App() {
   return (
@@ -73,6 +74,8 @@ function App() {
           <Route path="/ShoppingListView" element={<ShoppingListView />} />
           <Route path="/adminhome" element={<AdminHome />} />
           <Route path="/adminheader" element={<AppHeader1 />} />
+          <Route path="/viewproducts" element={<ViewProductForm />} />
+
 
           
 
