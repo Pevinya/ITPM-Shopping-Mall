@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Users from "./pages/Profile";
+// import Users from "./pages/Profile";
 
 import CreateFeedback from "./pages/CreateFeedback";
 import DisplayFeedback from "./pages/DisplayFeedback";
@@ -22,7 +22,7 @@ import PackagesViewUser from "./pages/PackagesViewUser/index";
 
 //import Shoppers from './pages/Community/Shoppers';
 
-import types from "./pages/Community/types";
+// import types from "./pages/Community/types";
 import Shoppers from "./pages/Community/Shoppers";
 import Foodies from "./pages/Community/Foodies";
 import KidsFamily from "./pages/Community/KidsFamily";
@@ -46,10 +46,10 @@ import AppHeader from "./pages/Header";
 import AppFooter from "./pages/Footer";
 //import UserTable from './pages/Profile';
 import UserDetailsForm from "./pages/Profile/viewprofile";
-import ShoppingListView from "./pages/shoppinglist/listview";
+// import ShoppingListView from "./pages/shoppinglist/listview";
 import AdminManageProfiles from "./pages/admindashbaord/viewadmindash";
 import AdminHome from "./pages/Home/adminhome";
-import { Header } from "antd/es/layout/layout";
+// import { Header } from "antd/es/layout/layout";
 import AppHeader1 from "./pages/Header1";
 import ViewProductForm from "./pages/addProducts/userview";
 
@@ -65,7 +65,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          {/Pevinya/}
+          {/* {/Pevinya/} */}
           <Route
             path="/"
             element={
@@ -78,7 +78,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/UserDetailsForm" element={<UserDetailsForm />} />
           <Route path="/admindash" element={<AdminManageProfiles />} />
-          <Route path="/ShoppingListView" element={<ShoppingListView />} />
+          {/* <Route path="/ShoppingListView" element={<ShoppingListView />} /> */}
           <Route path="/adminhome" element={<AdminHome />} />
           <Route path="/adminheader" element={<AppHeader1 />} />
           <Route path="/viewproducts" element={<ViewProductForm />} />
@@ -140,4 +140,3 @@ function App() {
 
 export default App;
 
-p
