@@ -53,12 +53,19 @@ import { Header } from "antd/es/layout/layout";
 import AppHeader1 from "./pages/Header1";
 import ViewProductForm from "./pages/addProducts/userview";
 
+
+import UpdateShoppingList from './pages/shoppinglist/updateShopping'
+import CreateShoppingList from './pages/shoppinglist/createShoppingList';
+import ViewShoppingList from './pages/shoppinglist/viewShoppingList';
+
+
+
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          {/*Pevinya*/}
+          {/Pevinya/}
           <Route
             path="/"
             element={
@@ -120,6 +127,11 @@ function App() {
           <Route path="/adminAdd" element={<AdminAdd />} />
           <Route exact path="/add-product/:name" element={<AddProductForm />} />
           {/* <Route path='/showOneProduct' element={<ShowOneProduct/>}/> */}
+
+          <Route path='/createShoppingList' element={<CreateShoppingList/>} />
+          <Route path='/viewShoppingList' element={<ViewShoppingList/>} />
+          <Route path='/updateShoppingList' element={<UpdateShoppingList/>}/>
+
         </Routes>
       </BrowserRouter>
     </div>
@@ -127,3 +139,5 @@ function App() {
 }
 
 export default App;
+
+p
