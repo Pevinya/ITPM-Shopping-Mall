@@ -84,27 +84,24 @@ const AppLayout = () => {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
-        <div
-          style={{
-            height: "32px",
-            background: "rgba(255, 255, 255, 0.2)",
-            margin: "16px",
-          }}
-        />
-        <Menu theme="dark" defaultSelectedKeys={["4"]} mode="inline">
-          <Menu.Item key="1" icon={<PieChartOutlined />}>Dashboard</Menu.Item>
-          <Menu.Item key="3" icon={<ContainerOutlined />}>Shopping List</Menu.Item>
-          <Menu.Item key="4" icon={<MailOutlined />}>Update Profile</Menu.Item>
-          <Menu.Item key="5" icon={<TeamOutlined />}>Membership</Menu.Item>
-          <Menu.Item key="6" icon={<EditOutlined />}>My Reviews</Menu.Item>
-          <Menu.Item key="7" icon={<LogoutOutlined />}>Logout</Menu.Item>
+    
+    <Layout style={{ minHeight: "1vh" }}>
+      
+      <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} style={{ background: '#d8b8ff' }}>
+      <AppHeader />
+
+        <Menu theme="light" defaultSelectedKeys={["4"]} mode="inline">
+          <Menu.Item key="1" icon={<PieChartOutlined />}>Dashboard</Menu.Item><br/>
+          <Menu.Item key="3" icon={<ContainerOutlined />}>Shopping List</Menu.Item><br/>
+          <Menu.Item key="4" icon={<MailOutlined />}>Update Profile</Menu.Item><br/>
+          <Menu.Item key="5" icon={<TeamOutlined />}>Membership</Menu.Item><br/>
+          <Menu.Item key="6" icon={<EditOutlined />}>My Reviews</Menu.Item><br/>
+          <Menu.Item key="7" icon={<LogoutOutlined />}>Logout</Menu.Item><br/>
         </Menu>
       </Sider>
       <Layout>
-        <AppHeader />
-        <Header style={{ padding: 0, background: "#fff" }} />
+        
+        <Header style={{ padding: 0, background: "#EAE2F8" }} />
         <Content style={{ margin: '0 16px', display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 134px)' }}>
           <Card
             title={<div style={{ fontSize: '24px', color: '#1890ff' }}>User Details</div>}
@@ -112,7 +109,7 @@ const AppLayout = () => {
             style={{
               width: '100%',
               maxWidth: '600px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              boxShadow: '0 px 8px rgba(0, 0, 0, 0.1)',
               borderRadius: '10px'
             }}
           >
@@ -150,13 +147,7 @@ const AppLayout = () => {
           initialValues={userData}
           onFinish={handleEditUser}
         >
-          <Form.Item
-            name="name"
-            label="Username"
-            rules={[{ required: true, message: "Please input your username!" }]}
-          >
-            <Input />
-          </Form.Item>
+          <Form.Item name="name" label="Username" rules={[{ required: true, message: "Please input your username!" }]}><Input /></Form.Item>
           <Form.Item
             name="email"
             label="Email"
