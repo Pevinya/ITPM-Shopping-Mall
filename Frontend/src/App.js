@@ -53,7 +53,13 @@ import AppHeader from './pages/Header';
 import AppFooter from './pages/Footer';
 //import UserTable from './pages/Profile';
 import UserDetailsForm from './pages/Profile/viewprofile';
-import ShoppingListView from './pages/shoppinglist/listview';
+
+import UpdateShoppingList from './pages/shoppinglist/updateShopping'
+import CreateShoppingList from './pages/shoppinglist/createShoppingList';
+import ViewShoppingList from './pages/shoppinglist/viewShoppingList';
+
+
+
 
 
 function App() {
@@ -66,9 +72,12 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/UserDetailsForm' element={<UserDetailsForm/>} />
-          <Route path='/ShoppingListView' element={<ShoppingListView/>} />
+          {/* <Route path='/ShoppingListView' element={<ShoppingListView/>} /> */}
         
          
+          <Route path='/createShoppingList' element={<CreateShoppingList/>} />
+          <Route path='/viewShoppingList' element={<ViewShoppingList/>} />
+          <Route path='/updateShoppingList' element={<UpdateShoppingList/>}/>
 
 
 

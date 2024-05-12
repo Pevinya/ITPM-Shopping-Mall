@@ -1,0 +1,64 @@
+/* PackagesView.css */
+/* General page styling */
+.PackagesView-container {
+    padding: 20px;
+    background-color: #f0f2f5;
+    /* Light grey background for slight contrast */
+    border-radius: 8px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.table-container {
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+
+/* Table styling */
+.ant-table-thead>tr>th {
+    background-color: #001529;
+    /* Dark blue background for the header */
+    color: white;
+    font-weight: bold;
+}
+
+.ant-table-tbody>tr>td {
+    background-color: #ffffff;
+    /* White background for rows */
+    color: #595959;
+    /* Dark grey text for readability */
+}
+
+/* Image styling within table */
+.ant-table-tbody>tr>td img {
+    width: 100px;
+    /* Fixed width for images */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 4px;
+    /* Rounded corners for images */
+}
+
+/* Button styling */
+.ant-btn {
+    margin-right: 8px;
+}
+
+.ant-btn-danger {
+    background-color: #ff4d4f;
+    /* Bright red for delete buttons, enhances UX by signaling caution */
+    border-color: #ff4d4f;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .PackagesView-container {
+        padding: 10px;
+        margin: 10px;
+    }
+}
