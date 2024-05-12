@@ -3,7 +3,7 @@ import { axiosInstance } from "./axiosInstance";
 //add shopping list
 export const AddShoppingList = async (payload) => {
     try {
-        const response = await axiosInstance.post("/api/shoppinglist/add-shoppingList", payload);
+        const response = await axiosInstance.post("/api/shoppinglist/add-shopping-list", payload);
         return response.data;       
     } catch (error) {
         throw error;       

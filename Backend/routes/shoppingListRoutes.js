@@ -1,14 +1,24 @@
 const router = require("express").Router();
 const ShoppingItem = require("../models/ShoppingListModel");
 
-// Add an item to the shopping list
-router.post("/add-shoppingList", async (req, res) => {
+router.post('/add-shopping-list', async (req, res) => {
   try {
-    const newItem = new ShoppingItem(req.body);
-    await newItem.save();
-    return res.send({ success: true, message: "Item added to the shopping list successfully" });
+    const { title, date, items } = req.body;
+    if (!title || !date || !items) {
+      return res.status(400).json({ success: false, message: "Missing required fields" });
+    }
+
+    const newShoppingList = new ShoppingItem({
+      title,
+      date,
+      items
+    });
+
+    const savedList = await newShoppingList.save();
+    res.status(201).json({ success: true, message: 'Shopping list added successfully', data: savedList });
   } catch (error) {
-    return res.send({ success: false, message: error.message });
+    console.error('Failed to add shopping list:', error);
+    res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
   }
 });
 

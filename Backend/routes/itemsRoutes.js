@@ -155,4 +155,24 @@ router.get("/get-item-image/:id", async (req, res) => {
     }
 });
 
+// Define route to get item name by ID
+router.get('/item-name-by/:id', async (req, res) => {
+    const itemId = req.params.id;
+  
+    try {
+      const item = await Item.findById(itemId);
+  
+      if (!item) {
+        return res.status(404).json({ message: 'Item not foundd' });
+      }
+  
+      // Assuming 'title' is the name of the item
+      const itemName = item.title;
+      res.json({ name: itemName });
+    } catch (err) {
+      console.error('Error retrieving item:', err.message);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+
 module.exports = router;
