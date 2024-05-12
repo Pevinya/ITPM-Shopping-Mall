@@ -1,14 +1,18 @@
-import { Button, Form, Input, message } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
+import { Button, Form, Input, message, Select, Space } from 'antd';
+import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
-import {AddShoppingList } from '../../apicalls/shoppingList.js';
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import moment from 'moment'; // Make sure to install moment.js if not already installed
+
+import { AddShoppingList } from '../../apicalls/api_shoppinglist';
 import AppFooter from '../Footer';
 import AppHeader from '../Header';
 
 const AddSList = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
+  const [options, setOptions] = useState([]);
 
   const onFinish = async (values) => {
     try {
@@ -26,17 +30,35 @@ const AddSList = () => {
     }
   };
 
+  const handleSearch = async (value) => {
+    if (!value) {
+      setOptions([]);
+      return;
+    }
+    try {
+      const response = await axios.get(`http://localhost:5000/api/item/get-all-items?query=${value}`);
+      const items = response.data.data;
+      console.log(items)
+      setOptions(items.map(item => ({
+        label: `${item.title} (${item.shop})`,
+        value: item._id
+      })));
+    } catch (error) {
+      console.error('Failed to fetch items:', error);
+      setOptions([]);
+    }
+  };
+
+  // Function to validate the date
+  const disabledDate = (current) => {
+    // Can not select days before today
+    return current && current < moment().startOf('day');
+  };
+
   return (
     <div>
       <AppHeader />
-      <div
-        style={{
-          textAlign: "center",
-          fontWeight: "bold",
-          fontSize: "24px",
-          margin: "20px 0",
-        }}
-      >
+      <div style={{ textAlign: "center", fontWeight: "bold", fontSize: "24px", margin: "20px 0" }}>
         Add Shopping List
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -55,15 +77,28 @@ const AddSList = () => {
               <Input placeholder="Title" />
             </Form.Item>
 
-
             <Form.Item
               name="date"
               label="Date"
-              rules={[
-                { required: true, message: "Please enter the  date!" },
-              ]}
+              rules={[{ required: true, message: "Please enter the date!" }, { validator: (_, value) => 
+                value && moment(value).startOf('day') < moment().startOf('day') ? Promise.reject(new Error("Cannot select a past date")) : Promise.resolve() 
+              }]}
             >
               <Input type="date" />
+            </Form.Item>
+
+            <Form.Item
+              name="items"
+              label="Search Products"
+            >
+              <Select
+                mode="multiple"
+                showSearch
+                placeholder="Select products"
+                onSearch={handleSearch}
+                filterOption={false}
+                options={options}
+              />
             </Form.Item>
 
             <Form.Item style={{ textAlign: "center" }}>
