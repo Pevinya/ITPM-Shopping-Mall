@@ -1,7 +1,7 @@
 import { Button, Form, Input, message } from 'antd';
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import {AddShoppingList } from '../../apicalls/shoppingList';
+import {AddShoppingList } from '../../apicalls/shoppingList.js';
 import { Link } from "react-router-dom";
 import AppFooter from '../Footer';
 import AppHeader from '../Header';
